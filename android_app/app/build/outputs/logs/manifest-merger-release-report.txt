@@ -1,0 +1,362 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:2:1-33:12
+MERGED from [androidx.navigation:navigation-common:2.8.5] /home/contra/.gradle/caches/8.13/transforms/f2754038bff11604210df5e2215dce1b/transformed/navigation-common-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /home/contra/.gradle/caches/8.13/transforms/f9672b0f3e2666440e2f5480423059ba/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.5] /home/contra/.gradle/caches/8.13/transforms/c1cd8ec2eb45c0a458452ddc6831eb4d/transformed/navigation-common-ktx-2.8.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.5] /home/contra/.gradle/caches/8.13/transforms/1facd664ab500279f5e433cec2f450cf/transformed/navigation-runtime-ktx-2.8.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.5] /home/contra/.gradle/caches/8.13/transforms/6e855d44b20c7593060a1909877eefe4/transformed/navigation-compose-2.8.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.10.1] /home/contra/.gradle/caches/8.13/transforms/c10cd99507b82f8936b8ce7b6807725e/transformed/activity-1.10.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /home/contra/.gradle/caches/8.13/transforms/636e3d809fe95661e6411d39237b4aca/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/76fe3374187cb6831c1e2b98860bcd3e/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/0ddc0f424bdddaa3f87d297c14eba334/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/8802b1b8a2e5332a95984405d161a5c8/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/43d75273891cc784551e6a8d121062c6/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/8f233537aca67e731b9809b480523b2a/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] /home/contra/.gradle/caches/8.13/transforms/690715542cd0ddf544c9047f8252e095/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/9c82a2187552caa78c68ac9019349e4a/transformed/ui-tooling-preview/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/e3932bf9216ce864ac65c7aa0c395fc2/transformed/ui-util/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/59e18b3319eaa20e0491fb185cd82b0c/transformed/ui-unit/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/918b5805e5211df1b4bc73d1959c2b44/transformed/ui-text/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/ed6029d93dfafab30872aa5dac61c599/transformed/ui-geometry/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/bd1680849cc13ac05fdf11492432ff51/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/contra/.gradle/caches/8.13/transforms/d85c054f86e9e057933c1198fdd23db4/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/c495511291a0a8eb117315ed26c29dc7/transformed/runtime-annotation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /home/contra/.gradle/caches/8.13/transforms/79f9dbd295914fdbe140d9337ac1f251/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /home/contra/.gradle/caches/8.13/transforms/e9a35506bb50ff8f230bebb667589658/transformed/savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.1] /home/contra/.gradle/caches/8.13/transforms/5aa0bf502c6ea0d6395722af58249285/transformed/savedstate-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/5bdcd3e1866a56ee10487d238da58a0b/transformed/runtime/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/85d2d8605480e6ca48a1be898b7c80a7/transformed/runtime-saveable/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/88e06e9144c3b0639f0b7e7f78647b98/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.3] /home/contra/.gradle/caches/8.13/transforms/5099da84ce29ce9a2acfe665d31c8fd2/transformed/lifecycle-livedata-core-2.9.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/df015ef359a403850c04091c37a97560/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/8d1132c023976c260fb5e6feec3f0ef9/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/d8f1f159a384f501054693c0f669fd30/transformed/lifecycle-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3] /home/contra/.gradle/caches/8.13/transforms/32a0abe53c2ca1e99938e98dcc40a334/transformed/lifecycle-viewmodel-ktx-2.9.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/03ab6270c72a4832e65b9dfe24c69530/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/c109105896a3de2b9394a19976205ba3/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/d1e2344c553ce93dbb0b3d81010debfb/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/d0a42345230e6d82bddd474bc604b1e4/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d25321d4ef65cf129e5076b1cad94767/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.10.1] /home/contra/.gradle/caches/8.13/transforms/243c23cc33c587d51dfc63dc2143875e/transformed/activity-ktx-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.10.1] /home/contra/.gradle/caches/8.13/transforms/10a6f1741955e7f6a7faa31e78f21626/transformed/activity-compose-1.10.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/contra/.gradle/caches/8.13/transforms/166d54e47775aba8ff34223dcc4f92bf/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.17.0] /home/contra/.gradle/caches/8.13/transforms/9565a92fb0f8e5e62c8be54215a5024f/transformed/core-ktx-1.17.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/83253b206f6282a9aba451ae0c82ab1c/transformed/datastore-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/42c030e6cb56858b2fe8aa97c3456aa2/transformed/datastore-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/286a3fd1021b38784a3e665d84c0c5b4/transformed/datastore-preferences-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/contra/.gradle/caches/8.13/transforms/7239618c4c59c0e7455b66363b59bf90/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/contra/.gradle/caches/8.13/transforms/2e5340c11cc86b18f5ba053db236637d/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/contra/.gradle/caches/8.13/transforms/5b73746a4805a9562d880b8f55ada193/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /home/contra/.gradle/caches/8.13/transforms/f196bac73a82dfaad705bd31fbffbeb6/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/contra/.gradle/caches/8.13/transforms/bfd1b4eb9f5f90d983a8f6470373c68b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/contra/.gradle/caches/8.13/transforms/5dd69c66d554b56c6bd577f35c58ad6b/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:5:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:6:22-73
+uses-permission#android.permission.VIBRATE
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:7:22-63
+uses-permission#android.permission.HIGH_SAMPLING_RATE_SENSORS
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:8:5-85
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:8:22-82
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:10:5-99
+	android:required
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:10:72-96
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:10:19-71
+uses-feature#android.hardware.sensor.gyroscope
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:5-95
+	android:required
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:68-92
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:19-67
+application
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:13:5-31:19
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:13:5-31:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/contra/.gradle/caches/8.13/transforms/bfd1b4eb9f5f90d983a8f6470373c68b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/contra/.gradle/caches/8.13/transforms/bfd1b4eb9f5f90d983a8f6470373c68b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:18:9-35
+	android:label
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:16:9-41
+	android:roundIcon
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:17:9-54
+	android:icon
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:15:9-43
+	android:allowBackup
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:14:9-35
+	android:theme
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:19:9-60
+activity#com.racing.controller.MainActivity
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:20:9-30:20
+	android:screenOrientation
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:23:13-56
+	android:exported
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:22:13-36
+	android:configChanges
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:24:13-87
+	android:theme
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:25:13-64
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:21:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:26:13-29:29
+action#android.intent.action.MAIN
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:27:17-69
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:27:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:28:27-74
+uses-sdk
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+MERGED from [androidx.navigation:navigation-common:2.8.5] /home/contra/.gradle/caches/8.13/transforms/f2754038bff11604210df5e2215dce1b/transformed/navigation-common-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.5] /home/contra/.gradle/caches/8.13/transforms/f2754038bff11604210df5e2215dce1b/transformed/navigation-common-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /home/contra/.gradle/caches/8.13/transforms/f9672b0f3e2666440e2f5480423059ba/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /home/contra/.gradle/caches/8.13/transforms/f9672b0f3e2666440e2f5480423059ba/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.5] /home/contra/.gradle/caches/8.13/transforms/c1cd8ec2eb45c0a458452ddc6831eb4d/transformed/navigation-common-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.5] /home/contra/.gradle/caches/8.13/transforms/c1cd8ec2eb45c0a458452ddc6831eb4d/transformed/navigation-common-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.5] /home/contra/.gradle/caches/8.13/transforms/1facd664ab500279f5e433cec2f450cf/transformed/navigation-runtime-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.5] /home/contra/.gradle/caches/8.13/transforms/1facd664ab500279f5e433cec2f450cf/transformed/navigation-runtime-ktx-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.5] /home/contra/.gradle/caches/8.13/transforms/6e855d44b20c7593060a1909877eefe4/transformed/navigation-compose-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.5] /home/contra/.gradle/caches/8.13/transforms/6e855d44b20c7593060a1909877eefe4/transformed/navigation-compose-2.8.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.10.1] /home/contra/.gradle/caches/8.13/transforms/c10cd99507b82f8936b8ce7b6807725e/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.1] /home/contra/.gradle/caches/8.13/transforms/c10cd99507b82f8936b8ce7b6807725e/transformed/activity-1.10.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /home/contra/.gradle/caches/8.13/transforms/636e3d809fe95661e6411d39237b4aca/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] /home/contra/.gradle/caches/8.13/transforms/636e3d809fe95661e6411d39237b4aca/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/76fe3374187cb6831c1e2b98860bcd3e/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/76fe3374187cb6831c1e2b98860bcd3e/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/0ddc0f424bdddaa3f87d297c14eba334/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/0ddc0f424bdddaa3f87d297c14eba334/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/8802b1b8a2e5332a95984405d161a5c8/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/8802b1b8a2e5332a95984405d161a5c8/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/43d75273891cc784551e6a8d121062c6/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/43d75273891cc784551e6a8d121062c6/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/8f233537aca67e731b9809b480523b2a/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /home/contra/.gradle/caches/8.13/transforms/8f233537aca67e731b9809b480523b2a/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /home/contra/.gradle/caches/8.13/transforms/690715542cd0ddf544c9047f8252e095/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/contra/.gradle/caches/8.13/transforms/690715542cd0ddf544c9047f8252e095/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/9c82a2187552caa78c68ac9019349e4a/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/9c82a2187552caa78c68ac9019349e4a/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/e3932bf9216ce864ac65c7aa0c395fc2/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/e3932bf9216ce864ac65c7aa0c395fc2/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/59e18b3319eaa20e0491fb185cd82b0c/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/59e18b3319eaa20e0491fb185cd82b0c/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/918b5805e5211df1b4bc73d1959c2b44/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/918b5805e5211df1b4bc73d1959c2b44/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/ed6029d93dfafab30872aa5dac61c599/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/ed6029d93dfafab30872aa5dac61c599/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/bd1680849cc13ac05fdf11492432ff51/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/bd1680849cc13ac05fdf11492432ff51/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/contra/.gradle/caches/8.13/transforms/d85c054f86e9e057933c1198fdd23db4/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /home/contra/.gradle/caches/8.13/transforms/d85c054f86e9e057933c1198fdd23db4/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/c495511291a0a8eb117315ed26c29dc7/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/c495511291a0a8eb117315ed26c29dc7/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /home/contra/.gradle/caches/8.13/transforms/79f9dbd295914fdbe140d9337ac1f251/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.1] /home/contra/.gradle/caches/8.13/transforms/79f9dbd295914fdbe140d9337ac1f251/transformed/savedstate-ktx-1.3.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /home/contra/.gradle/caches/8.13/transforms/e9a35506bb50ff8f230bebb667589658/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.1] /home/contra/.gradle/caches/8.13/transforms/e9a35506bb50ff8f230bebb667589658/transformed/savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.1] /home/contra/.gradle/caches/8.13/transforms/5aa0bf502c6ea0d6395722af58249285/transformed/savedstate-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.1] /home/contra/.gradle/caches/8.13/transforms/5aa0bf502c6ea0d6395722af58249285/transformed/savedstate-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/5bdcd3e1866a56ee10487d238da58a0b/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/5bdcd3e1866a56ee10487d238da58a0b/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/85d2d8605480e6ca48a1be898b7c80a7/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/85d2d8605480e6ca48a1be898b7c80a7/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/88e06e9144c3b0639f0b7e7f78647b98/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/88e06e9144c3b0639f0b7e7f78647b98/transformed/lifecycle-runtime-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.3] /home/contra/.gradle/caches/8.13/transforms/5099da84ce29ce9a2acfe665d31c8fd2/transformed/lifecycle-livedata-core-2.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.3] /home/contra/.gradle/caches/8.13/transforms/5099da84ce29ce9a2acfe665d31c8fd2/transformed/lifecycle-livedata-core-2.9.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/df015ef359a403850c04091c37a97560/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/df015ef359a403850c04091c37a97560/transformed/lifecycle-viewmodel-savedstate-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/8d1132c023976c260fb5e6feec3f0ef9/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/8d1132c023976c260fb5e6feec3f0ef9/transformed/lifecycle-viewmodel-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/d8f1f159a384f501054693c0f669fd30/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/d8f1f159a384f501054693c0f669fd30/transformed/lifecycle-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3] /home/contra/.gradle/caches/8.13/transforms/32a0abe53c2ca1e99938e98dcc40a334/transformed/lifecycle-viewmodel-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.3] /home/contra/.gradle/caches/8.13/transforms/32a0abe53c2ca1e99938e98dcc40a334/transformed/lifecycle-viewmodel-ktx-2.9.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/03ab6270c72a4832e65b9dfe24c69530/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/03ab6270c72a4832e65b9dfe24c69530/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/c109105896a3de2b9394a19976205ba3/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.3] /home/contra/.gradle/caches/8.13/transforms/c109105896a3de2b9394a19976205ba3/transformed/lifecycle-viewmodel-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/d1e2344c553ce93dbb0b3d81010debfb/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/d1e2344c553ce93dbb0b3d81010debfb/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/d0a42345230e6d82bddd474bc604b1e4/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] /home/contra/.gradle/caches/8.13/transforms/d0a42345230e6d82bddd474bc604b1e4/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d25321d4ef65cf129e5076b1cad94767/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d25321d4ef65cf129e5076b1cad94767/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /home/contra/.gradle/caches/8.13/transforms/243c23cc33c587d51dfc63dc2143875e/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.1] /home/contra/.gradle/caches/8.13/transforms/243c23cc33c587d51dfc63dc2143875e/transformed/activity-ktx-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /home/contra/.gradle/caches/8.13/transforms/10a6f1741955e7f6a7faa31e78f21626/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.1] /home/contra/.gradle/caches/8.13/transforms/10a6f1741955e7f6a7faa31e78f21626/transformed/activity-compose-1.10.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/contra/.gradle/caches/8.13/transforms/166d54e47775aba8ff34223dcc4f92bf/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/contra/.gradle/caches/8.13/transforms/166d54e47775aba8ff34223dcc4f92bf/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.17.0] /home/contra/.gradle/caches/8.13/transforms/9565a92fb0f8e5e62c8be54215a5024f/transformed/core-ktx-1.17.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.17.0] /home/contra/.gradle/caches/8.13/transforms/9565a92fb0f8e5e62c8be54215a5024f/transformed/core-ktx-1.17.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/83253b206f6282a9aba451ae0c82ab1c/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/83253b206f6282a9aba451ae0c82ab1c/transformed/datastore-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/42c030e6cb56858b2fe8aa97c3456aa2/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/42c030e6cb56858b2fe8aa97c3456aa2/transformed/datastore-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/286a3fd1021b38784a3e665d84c0c5b4/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.2] /home/contra/.gradle/caches/8.13/transforms/286a3fd1021b38784a3e665d84c0c5b4/transformed/datastore-preferences-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/contra/.gradle/caches/8.13/transforms/7239618c4c59c0e7455b66363b59bf90/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/contra/.gradle/caches/8.13/transforms/7239618c4c59c0e7455b66363b59bf90/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/contra/.gradle/caches/8.13/transforms/2e5340c11cc86b18f5ba053db236637d/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /home/contra/.gradle/caches/8.13/transforms/2e5340c11cc86b18f5ba053db236637d/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/contra/.gradle/caches/8.13/transforms/5b73746a4805a9562d880b8f55ada193/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/contra/.gradle/caches/8.13/transforms/5b73746a4805a9562d880b8f55ada193/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /home/contra/.gradle/caches/8.13/transforms/f196bac73a82dfaad705bd31fbffbeb6/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /home/contra/.gradle/caches/8.13/transforms/f196bac73a82dfaad705bd31fbffbeb6/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/contra/.gradle/caches/8.13/transforms/bfd1b4eb9f5f90d983a8f6470373c68b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/contra/.gradle/caches/8.13/transforms/bfd1b4eb9f5f90d983a8f6470373c68b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/contra/.gradle/caches/8.13/transforms/5dd69c66d554b56c6bd577f35c58ad6b/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/contra/.gradle/caches/8.13/transforms/5dd69c66d554b56c6bd577f35c58ad6b/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+permission#com.racing.controller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+uses-permission#com.racing.controller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92

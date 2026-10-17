@@ -1,0 +1,7 @@
+# PC Racing Companion Dependencies
+# Core Virtual Gamepad (Windows 10/11 with ViGEmBus driver)
+vgamepad>=0.1.0; sys_platform == 'win32'
+
+# Optional testing / CLI utilities
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
