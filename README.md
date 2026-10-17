@@ -42,7 +42,6 @@ Jump directly to any section:
 For players who want to jump into a race immediately:
 1. **Make sure to download run_pc_companion.exe from release section in this github repo**
 2. **Run the exe"
-   ```
 3. **Phone**: Install `Apex-Wheel.apk` onto your Android phone from release section from this github page and open **ApexWheel**.
 4. **Connect**: Tap the connection badge on your phone, tap **Scan PC QR Code**, and point your camera at the QR code in your PC terminal or on `http://localhost:8080`.
 5. **Race**: Hold your phone horizontally, tap **Calibrate**, launch your favorite racing game, and drive!
