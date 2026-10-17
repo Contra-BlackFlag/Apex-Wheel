@@ -40,8 +40,7 @@ Jump directly to any section:
 ## ⚡ Quick Start Guide (3-Minute Setup)
 
 For players who want to jump into a race immediately:
-
-1. **PC**: Install [ViGEmBus](https://github.com/nefarius/ViGEmBus/releases/latest) on your Windows PC.
+1. **Do as Below, make sure you have python**
 2. **PC**: Open terminal in `pc_companion/`, install dependencies, and run:
    ```bash
    pip install -r requirements.txt
