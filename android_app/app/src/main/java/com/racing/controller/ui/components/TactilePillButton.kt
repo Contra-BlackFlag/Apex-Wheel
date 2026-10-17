@@ -1,6 +1,9 @@
 package com.racing.controller.ui.components
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,18 +23,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.racing.controller.ui.theme.ControlBorderDark
-import com.racing.controller.ui.theme.ControlBorderLight
 import com.racing.controller.ui.theme.SurfaceControl
-import com.racing.controller.ui.theme.SurfaceControlPressed
-import com.racing.controller.ui.theme.TextPrimary
 
+/**
+ * Expressively reactive tactile pill button (Select & Start).
+ * Features spring-physics compression, vibrant edge glow, and high-contrast tactile feedback.
+ */
 @Composable
 fun TactilePillButton(
     text: String,
@@ -42,31 +47,59 @@ fun TactilePillButton(
 ) {
     var isPressed by remember { mutableStateOf(false) }
 
-    val bgColor by animateColorAsState(
-        targetValue = if (isPressed) SurfaceControlPressed else SurfaceControl,
-        animationSpec = tween(durationMillis = 60),
-        label = "pillBg"
+    val isStart = text.equals("Start", ignoreCase = true)
+    val activeGlow = if (isStart) Color(0xFFFFB300) else Color(0xFF47C7FC)
+    val activeBgStart = if (isStart) Color(0xFF4A3406) else Color(0xFF0D324E)
+    val activeBgEnd = if (isStart) Color(0xFF1E1502) else Color(0xFF04121F)
+
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.88f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMedium
+        ),
+        label = "pillScale"
     )
 
     val borderColor by animateColorAsState(
-        targetValue = if (isPressed) ControlBorderLight else ControlBorderDark,
-        animationSpec = tween(durationMillis = 60),
+        targetValue = if (isPressed) activeGlow else Color(0xFF454D5E),
+        animationSpec = tween(durationMillis = 80),
         label = "pillBorder"
+    )
+
+    val borderWidth by animateFloatAsState(
+        targetValue = if (isPressed) 2.5f else 1.2f,
+        animationSpec = tween(durationMillis = 80),
+        label = "pillBorderWidth"
     )
 
     Box(
         modifier = modifier
             .size(width = width, height = height)
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
             .shadow(
-                elevation = if (isPressed) 1.dp else 5.dp,
+                elevation = if (isPressed) 12.dp else 4.dp,
                 shape = CircleShape,
-                ambientColor = Color.Black,
-                spotColor = Color.Black
+                ambientColor = if (isPressed) activeGlow else Color.Black,
+                spotColor = if (isPressed) activeGlow else Color.Black
             )
             .clip(CircleShape)
-            .background(bgColor)
+            .background(
+                if (isPressed) {
+                    Brush.horizontalGradient(
+                        colors = listOf(activeBgStart, activeBgEnd)
+                    )
+                } else {
+                    Brush.horizontalGradient(
+                        colors = listOf(Color(0xFF2C3240), SurfaceControl)
+                    )
+                }
+            )
             .border(
-                width = 1.2.dp,
+                width = borderWidth.dp,
                 color = borderColor,
                 shape = CircleShape
             )
@@ -85,9 +118,10 @@ fun TactilePillButton(
     ) {
         Text(
             text = text,
-            color = if (isPressed) Color.White else TextPrimary,
+            color = if (isPressed) Color.White else Color(0xFFE2E6F0),
             fontSize = 14.sp,
-            fontWeight = FontWeight.Medium
+            fontWeight = FontWeight.Bold,
+            letterSpacing = 0.5.sp
         )
     }
 }

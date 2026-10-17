@@ -1,6 +1,9 @@
 package com.racing.controller.ui.components
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,18 +23,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.racing.controller.ui.theme.ControlBorderDark
-import com.racing.controller.ui.theme.ControlBorderLight
 import com.racing.controller.ui.theme.SurfaceControl
-import com.racing.controller.ui.theme.SurfaceControlPressed
-import com.racing.controller.ui.theme.TextPrimary
 
+/**
+ * Expressively reactive tactile clutch pedal button.
+ * Features spring-physics compression, electric cyan illumination,
+ * and high-contrast tactile feedback on press.
+ */
 @Composable
 fun TactileClutchButton(
     modifier: Modifier = Modifier,
@@ -41,40 +47,69 @@ fun TactileClutchButton(
 ) {
     var isPressed by remember { mutableStateOf(false) }
 
-    val shape = RoundedCornerShape(
-        topStart = 6.dp,
-        topEnd = 6.dp,
-        bottomStart = 34.dp,
-        bottomEnd = 34.dp
+    val clutchShape = RoundedCornerShape(
+        topStart = 8.dp,
+        topEnd = 8.dp,
+        bottomStart = 36.dp,
+        bottomEnd = 36.dp
     )
 
-    val bgColor by animateColorAsState(
-        targetValue = if (isPressed) SurfaceControlPressed else SurfaceControl,
-        animationSpec = tween(durationMillis = 60),
-        label = "clutchBg"
+    val activeGlow = Color(0xFF00D2BE)
+    val activeBgStart = Color(0xFF0A3E38)
+    val activeBgEnd = Color(0xFF041917)
+
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.88f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMedium
+        ),
+        label = "clutchScale"
     )
 
     val borderColor by animateColorAsState(
-        targetValue = if (isPressed) ControlBorderLight else ControlBorderDark,
-        animationSpec = tween(durationMillis = 60),
+        targetValue = if (isPressed) activeGlow else Color(0xFF454D5E),
+        animationSpec = tween(durationMillis = 80),
         label = "clutchBorder"
+    )
+
+    val borderWidth by animateFloatAsState(
+        targetValue = if (isPressed) 3.0f else 1.5f,
+        animationSpec = tween(durationMillis = 80),
+        label = "clutchBorderWidth"
     )
 
     Box(
         modifier = modifier
             .size(width = width, height = height)
+            .graphicsLayer {
+                scaleX = scale
+                scaleY = scale
+            }
             .shadow(
-                elevation = if (isPressed) 2.dp else 8.dp,
-                shape = shape,
-                ambientColor = Color.Black,
-                spotColor = Color.Black
+                elevation = if (isPressed) 16.dp else 6.dp,
+                shape = clutchShape,
+                ambientColor = if (isPressed) activeGlow else Color.Black,
+                spotColor = if (isPressed) activeGlow else Color.Black
             )
-            .clip(shape)
-            .background(bgColor)
+            .clip(clutchShape)
+            .background(
+                if (isPressed) {
+                    Brush.radialGradient(
+                        colors = listOf(activeBgStart, activeBgEnd),
+                        radius = width.value * 1.5f
+                    )
+                } else {
+                    Brush.radialGradient(
+                        colors = listOf(Color(0xFF2E3544), SurfaceControl),
+                        radius = width.value * 1.5f
+                    )
+                }
+            )
             .border(
-                width = 1.5.dp,
+                width = borderWidth.dp,
                 color = borderColor,
-                shape = shape
+                shape = clutchShape
             )
             .pointerInput(Unit) {
                 awaitEachGesture {
@@ -89,11 +124,28 @@ fun TactileClutchButton(
             },
         contentAlignment = Alignment.Center
     ) {
+        // Horizontal tread grip ridges
+        Box(
+            modifier = Modifier
+                .size(width = width * 0.72f, height = height * 0.65f)
+                .border(
+                    width = 1.dp,
+                    color = if (isPressed) activeGlow.copy(alpha = 0.5f) else Color(0x22FFFFFF),
+                    shape = RoundedCornerShape(
+                        topStart = 6.dp,
+                        topEnd = 6.dp,
+                        bottomStart = 26.dp,
+                        bottomEnd = 26.dp
+                    )
+                )
+        )
+
         Text(
             text = "Clutch",
-            color = if (isPressed) Color.White else TextPrimary,
+            color = if (isPressed) Color.White else Color(0xFFE2E6F0),
             fontSize = 17.sp,
-            fontWeight = FontWeight.Medium
+            fontWeight = FontWeight.Bold,
+            letterSpacing = 0.5.sp
         )
     }
 }

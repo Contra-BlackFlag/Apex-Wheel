@@ -1,7 +1,15 @@
 R_DEF: Internal format may change without notice
 local
+drawable bg_scanner_pill
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_scan_close
+drawable ic_scan_torch
+drawable ic_scanner_frame
+id btn_close_scanner
+id btn_torch
+id zxing_barcode_scanner
+layout activity_custom_scanner
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

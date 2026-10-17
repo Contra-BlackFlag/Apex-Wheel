@@ -70,6 +70,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.racing.controller.ui.CustomScannerActivity"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme" />
+        <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"
             android:exported="true" />
 

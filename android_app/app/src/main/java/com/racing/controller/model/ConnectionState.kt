@@ -18,5 +18,6 @@ data class ControllerSettings(
     val useTouchSteering: Boolean = false,
     val updateRateHz: Int = 100, // 30, 60, 100, 120
     val hapticFeedbackEnabled: Boolean = true,
-    val throttleRampEnabled: Boolean = false
+    val throttleRampEnabled: Boolean = false,
+    val selectedTeam: String = "red_bull"
 )

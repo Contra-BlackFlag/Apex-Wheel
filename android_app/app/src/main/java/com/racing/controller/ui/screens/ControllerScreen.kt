@@ -26,6 +26,11 @@ import com.racing.controller.ui.components.TopControlBar
 import com.racing.controller.ui.theme.CockpitBackground
 import com.racing.controller.viewmodel.ControllerViewModel
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import com.racing.controller.model.RacingTeam
+
 @Composable
 fun ControllerScreen(
     viewModel: ControllerViewModel,
@@ -37,6 +42,9 @@ fun ControllerScreen(
     val steeringAngle by viewModel.steeringAngleDegrees.collectAsState()
     val settings by viewModel.settingsState.collectAsState()
     val inputs by viewModel.inputs.collectAsState()
+
+    var showThemeDialog by remember { mutableStateOf(false) }
+    val team = remember(settings.selectedTeam) { RacingTeam.fromId(settings.selectedTeam) }
 
     DisposableEffect(Unit) {
         viewModel.onResumeScreen()
@@ -50,9 +58,11 @@ fun ControllerScreen(
             .fillMaxSize()
             .background(CockpitBackground)
     ) {
-        // Top HUD Control Bar
+        // Top HUD Control Bar with active F1 Team Badge
         TopControlBar(
             connectionState = connectionState,
+            team = team,
+            onTeamClick = { showThemeDialog = true },
             onCalibrateClick = onShowCalibration,
             onConnectionClick = onNavigateToConnection,
             onSettingsClick = onNavigateToSettings,
@@ -104,18 +114,27 @@ fun ControllerScreen(
                         throttle = inputs.throttle,
                         width = 240.dp,
                         height = 14.dp,
-                        modifier = Modifier.padding(bottom = 8.dp)
+                        modifier = Modifier.padding(bottom = 6.dp)
                     )
 
-                    // Steering Wheel with crosshairs
+                    // Dedicated Digital Telemetry HUD Pill (Outside the wheel, zero interference!)
+                    com.racing.controller.ui.components.SteeringTelemetryBadge(
+                        steeringAngle = steeringAngle,
+                        team = team
+                    )
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    // Steering Wheel with authentic circular rim & official team logo
                     SteeringWheelView(
                         rotationAngleDegrees = steeringAngle,
-                        diameter = 250.dp,
+                        diameter = 230.dp,
+                        team = team,
                         touchSteeringEnabled = settings.useTouchSteering,
                         onTouchSteer = { viewModel.setTouchSteering(it) }
                     )
 
-                    Spacer(modifier = Modifier.height(14.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
 
                     // Select Button (pill)
                     TactilePillButton(
@@ -174,5 +193,16 @@ fun ControllerScreen(
                 }
             }
         }
+    }
+
+    // F1 Steering Wheel Theme Selector Dialog
+    if (showThemeDialog) {
+        F1ThemeDialog(
+            currentTeam = team,
+            onSelectTeam = { newTeam ->
+                viewModel.saveSettings(settings.copy(selectedTeam = newTeam.id))
+            },
+            onDismiss = { showThemeDialog = false }
+        )
     }
 }

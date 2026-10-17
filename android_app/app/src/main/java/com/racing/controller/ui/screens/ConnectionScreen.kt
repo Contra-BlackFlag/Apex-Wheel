@@ -143,6 +143,7 @@ fun ConnectionScreen(
                         Button(
                             onClick = {
                                 val options = ScanOptions().apply {
+                                    setCaptureActivity(com.racing.controller.ui.CustomScannerActivity::class.java)
                                     setPrompt("Align the QR Code from your PC in the viewfinder")
                                     setBeepEnabled(true)
                                     setOrientationLocked(false)

@@ -34,9 +34,15 @@ import com.racing.controller.ui.theme.AccentRed
 import com.racing.controller.ui.theme.TextPrimary
 import com.racing.controller.ui.theme.TextSecondary
 
+import androidx.compose.foundation.border
+import androidx.compose.ui.text.font.FontWeight
+import com.racing.controller.model.RacingTeam
+
 @Composable
 fun TopControlBar(
     connectionState: ConnectionState,
+    team: RacingTeam = RacingTeam.RED_BULL,
+    onTeamClick: (() -> Unit)? = null,
     onCalibrateClick: () -> Unit,
     onConnectionClick: () -> Unit,
     onSettingsClick: () -> Unit,
@@ -49,41 +55,66 @@ fun TopControlBar(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Connection status pill
-        val (statusColor, statusText) = when (connectionState) {
-            is ConnectionState.Connected -> Pair(AccentGreen, "Connected ${connectionState.pingMs}ms")
-            is ConnectionState.Connecting -> Pair(AccentAmber, "Connecting...")
-            is ConnectionState.Disconnected -> Pair(AccentRed, "Disconnected")
-            is ConnectionState.Error -> Pair(AccentRed, "Error")
-        }
-
+        // Left side: Connection status pill and Active F1 Team Badge
         Row(
-            modifier = Modifier
-                .clip(RoundedCornerShape(16.dp))
-                .background(Color(0x33000000))
-                .clickable { onConnectionClick() }
-                .padding(horizontal = 10.dp, vertical = 4.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Box(
+            val (statusColor, statusText) = when (connectionState) {
+                is ConnectionState.Connected -> Pair(AccentGreen, "Connected ${connectionState.pingMs}ms")
+                is ConnectionState.Connecting -> Pair(AccentAmber, "Connecting...")
+                is ConnectionState.Disconnected -> Pair(AccentRed, "Disconnected")
+                is ConnectionState.Error -> Pair(AccentRed, "Error")
+            }
+
+            Row(
                 modifier = Modifier
-                    .size(8.dp)
-                    .clip(CircleShape)
-                    .background(statusColor)
-            )
-            Spacer(modifier = Modifier.width(6.dp))
-            Text(
-                text = statusText,
-                color = TextSecondary,
-                fontSize = 11.sp
-            )
-            Spacer(modifier = Modifier.width(4.dp))
-            Icon(
-                imageVector = if (connectionState is ConnectionState.Connected) Icons.Default.Wifi else Icons.Default.WifiOff,
-                contentDescription = "Connection",
-                tint = statusColor,
-                modifier = Modifier.size(13.dp)
-            )
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(Color(0x33000000))
+                    .clickable { onConnectionClick() }
+                    .padding(horizontal = 10.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(8.dp)
+                        .clip(CircleShape)
+                        .background(statusColor)
+                )
+                Spacer(modifier = Modifier.width(6.dp))
+                Text(
+                    text = statusText,
+                    color = TextSecondary,
+                    fontSize = 11.sp
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Icon(
+                    imageVector = if (connectionState is ConnectionState.Connected) Icons.Default.Wifi else Icons.Default.WifiOff,
+                    contentDescription = "Connection",
+                    tint = statusColor,
+                    modifier = Modifier.size(13.dp)
+                )
+            }
+
+            // Active F1 Team Badge Pill with real logo
+            Row(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(team.primaryColor.copy(alpha = 0.85f))
+                    .border(1.dp, team.accentColor.copy(alpha = 0.5f), RoundedCornerShape(16.dp))
+                    .then(if (onTeamClick != null) Modifier.clickable { onTeamClick() } else Modifier)
+                    .padding(horizontal = 8.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TeamLogoBadge(team = team, size = 16.dp)
+                Spacer(modifier = Modifier.width(6.dp))
+                Text(
+                    text = team.shortName,
+                    color = Color.White,
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
 
         // Action buttons: Calibrate, Settings

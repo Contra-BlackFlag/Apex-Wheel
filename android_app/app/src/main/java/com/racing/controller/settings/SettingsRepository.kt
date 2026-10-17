@@ -29,6 +29,7 @@ class SettingsRepository(private val context: Context) {
         val UPDATE_RATE_HZ = intPreferencesKey("update_rate_hz")
         val HAPTIC_FEEDBACK = booleanPreferencesKey("haptic_feedback")
         val THROTTLE_RAMP = booleanPreferencesKey("throttle_ramp")
+        val SELECTED_TEAM = stringPreferencesKey("selected_team")
     }
 
     val settingsFlow: Flow<ControllerSettings> = context.dataStore.data.map { preferences ->
@@ -43,7 +44,8 @@ class SettingsRepository(private val context: Context) {
             useTouchSteering = preferences[PreferencesKeys.USE_TOUCH_STEERING] ?: false,
             updateRateHz = preferences[PreferencesKeys.UPDATE_RATE_HZ] ?: 60,
             hapticFeedbackEnabled = preferences[PreferencesKeys.HAPTIC_FEEDBACK] ?: true,
-            throttleRampEnabled = preferences[PreferencesKeys.THROTTLE_RAMP] ?: false
+            throttleRampEnabled = preferences[PreferencesKeys.THROTTLE_RAMP] ?: false,
+            selectedTeam = preferences[PreferencesKeys.SELECTED_TEAM] ?: "red_bull"
         )
     }
 
@@ -60,6 +62,7 @@ class SettingsRepository(private val context: Context) {
             preferences[PreferencesKeys.UPDATE_RATE_HZ] = settings.updateRateHz
             preferences[PreferencesKeys.HAPTIC_FEEDBACK] = settings.hapticFeedbackEnabled
             preferences[PreferencesKeys.THROTTLE_RAMP] = settings.throttleRampEnabled
+            preferences[PreferencesKeys.SELECTED_TEAM] = settings.selectedTeam
         }
     }
 
