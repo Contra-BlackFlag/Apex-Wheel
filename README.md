@@ -1,6 +1,6 @@
 # 🏎️ ApexWheel: Mobile Racing Controller for PC Games
 
-ApexWheel turns your Android smartphone into a high-precision, low-latency wireless racing wheel and gamepad controller for PC racing games (*Forza Horizon*, *Assetto Corsa*, *F1 24*, *BeamNG.drive*, *Need for Speed*, *Project CARS*, etc.).
+ApexWheel turns your Android smartphone into a high-precision, low-latency wireless racing wheel and gamepad controller for PC racing games (*Forza Horizon*, *Assetto Corsa*, *F1 24*, *BeamNG.drive*, *Need for Speed*, *Project CARS*, etc.) or any driving game with support for controllers.
 
 By combining Android's fused motion sensors (rotation vector / 6-DOF gyroscope) with an authentic Formula 1 cockpit interface, ApexWheel converts phone tilt, analog pedal pressures, and rapid tactile button presses into standard **virtual Xbox 360 controller (XInput)** inputs recognized automatically by Windows games.
 
