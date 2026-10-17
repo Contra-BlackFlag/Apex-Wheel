@@ -46,7 +46,7 @@ For players who want to jump into a race immediately:
    pip install -r requirements.txt
    python run pc_companion.py
    ```
-3. **Phone**: Install `app-debug.apk` onto your Android phone and open **ApexWheel**.
+3. **Phone**: Install `Apex-Wheel.apk` onto your Android phone from release section from this github page and open **ApexWheel**.
 4. **Connect**: Tap the connection badge on your phone, tap **Scan PC QR Code**, and point your camera at the QR code in your PC terminal or on `http://localhost:8080`.
 5. **Race**: Hold your phone horizontally, tap **Calibrate**, launch your favorite racing game, and drive!
 
