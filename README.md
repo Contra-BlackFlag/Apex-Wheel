@@ -1,245 +1,421 @@
-# ApexWheel: Mobile Racing Controller for PC Games
+# 🏎️ ApexWheel: Mobile Racing Controller for PC Games
 
-ApexWheel turns your Android smartphone into a high-precision, low-latency wireless racing controller for PC racing games (Forza Horizon, Assetto Corsa, F1, BeamNG.drive, Need for Speed, Project CARS, etc.).
+ApexWheel turns your Android smartphone into a high-precision, low-latency wireless racing wheel and gamepad controller for PC racing games (*Forza Horizon*, *Assetto Corsa*, *F1 24*, *BeamNG.drive*, *Need for Speed*, *Project CARS*, etc.).
 
-By combining Android's fused motion sensors (rotation vector / gyroscope) with a custom Nothing-inspired tactile cockpit interface, ApexWheel converts physical phone steering tilt, analog pedal pressures, and quick-shift touches into standard Xbox 360 gamepad inputs recognized by Windows games.
-
----
-
-## Visual Design Reference & Interface
-
-The Android interface is inspired by Nothing's minimalist dark design language:
-- **Near-black matte background** (`#111215`) with charcoal controller touch surfaces (`#21242A`).
-- **Tactile feedback** with subtle highlight bevels and embossed depth.
-- **Steering Wheel Canvas**: Large circular wheel with full crosshairs and center indicator that rotates smoothly in real-time as you tilt your phone.
-- **Brake & Accelerator**: Circular touch pads positioned comfortably at the upper corners.
-- **Clutch**: U-shaped rounded-bottom pedal button below the brake.
-- **E-Brake**: Dedicated automotive handbrake button with standard `(!)` symbol.
-- **Gear Up / Down**: Wide chevron arrows for rapid shifting.
-- **Select & Start**: Pill buttons centered beneath the steering wheel.
+By combining Android's fused motion sensors (rotation vector / 6-DOF gyroscope) with an authentic Formula 1 cockpit interface, ApexWheel converts phone tilt, analog pedal pressures, and rapid tactile button presses into standard **virtual Xbox 360 controller (XInput)** inputs recognized automatically by Windows games.
 
 ---
 
-## System Architecture
+## 📑 Table of Contents (Index)
 
-```
-┌──────────────────────────────────────────────┐
-│          Android Client (Kotlin)             │
-│  - SensorManager (Fused Game Rotation Vector)│
-│  - Low-pass Exponential Smoothing Filter     │
-│  - Deadzone & Sensitivity Remapping          │
-│  - Jetpack Compose Cockpit UI                │
-│  - Non-blocking TCP Socket (TCP_NODELAY)     │
-└──────────────────────┬───────────────────────┘
-                       │ Wi-Fi LAN
-                       │ Newline-delimited JSON (60 Hz)
-                       ▼
-┌──────────────────────────────────────────────┐
-│           PC Companion (Python 3)            │
-│  - Asynchronous TCP Socket Server            │
-│  - 500ms Watchdog Disconnect Safety          │
-│  - Input Protocol Parser & Validation        │
-│  - Embedded Web Control Panel (Port 8080)    │
-│  - ANSI Real-time Terminal HUD               │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│       Windows ViGEmBus Driver Layer          │
-│  - vgamepad (Virtual Xbox 360 Controller)    │
-│  - Analog Steering (Left Thumbstick X)       │
-│  - Analog Throttle (Right Trigger 0..255)    │
-│  - Analog Brake (Left Trigger 0..255)        │
-│  - Clutch, Handbrake, Shifters, Menus        │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│      PC Games (Forza, Assetto Corsa, etc.)   │
-│   Native XInput Controller Support           │
-└──────────────────────────────────────────────┘
-```
+Jump directly to any section:
+
+1. [⚡ Quick Start Guide (3-Minute Setup)](#quick-start-guide)
+2. [📋 System Requirements & Prerequisites](#system-requirements)
+3. [🖥️ Step 1: Setting Up the PC Companion](#step-1-pc-companion)
+   - [Windows Installation (Gaming Mode with ViGEmBus)](#windows-installation)
+   - [Linux / macOS Installation (Developer / Mock Mode)](#linux-macos-installation)
+   - [Running the PC Companion](#running-the-pc-companion)
+   - [Firewall & Network Configuration](#firewall-network-configuration)
+4. [📱 Step 2: Setting Up the Android App](#step-2-android-app)
+   - [Option A: Install Pre-Built APK (Recommended)](#option-a-install-apk)
+   - [Option B: Build from Source with Gradle](#option-b-build-source)
+5. [🔗 Step 3: Connecting Phone to PC](#step-3-connecting)
+   - [Method 1: Instant QR Code Scan (Fastest)](#method-1-qr-scan)
+   - [Method 2: Manual IP Entry](#method-2-manual-ip)
+6. [🎮 Step 4: Configuring Your PC Games](#step-4-game-config)
+7. [🕹️ Cockpit Interface & Input Mappings](#cockpit-interface)
+   - [Default Xbox 360 Controller Mapping](#default-mapping)
+   - [Cockpit Features & Layout](#cockpit-layout)
+   - [F1 Team Liveries & Steering Wheels](#f1-liveries)
+8. [🎯 Sensor Calibration & Tuning](#calibration-tuning)
+9. [🛡️ Disconnect Safety & Failsafe Watchdog](#disconnect-safety)
+10. [🔧 Troubleshooting & Common Issues](#troubleshooting)
+11. [🧪 Running Unit Tests & Verification](#unit-tests)
+12. [📁 Project Architecture & Directory Layout](#project-architecture)
 
 ---
 
-## Directory Structure
+<a id="quick-start-guide"></a>
+## ⚡ Quick Start Guide (3-Minute Setup)
 
-```
-Steering Project/
-├── android_app/                     # Android Application (Kotlin + Jetpack Compose)
-│   ├── app/
-│   │   ├── build.gradle.kts         # Compile SDK 36, Min SDK 29, Java 21
-│   │   └── src/
-│   │       ├── main/
-│   │       │   ├── AndroidManifest.xml
-│   │       │   └── java/com/racing/controller/
-│   │       │       ├── MainActivity.kt
-│   │       │       ├── model/       # ControllerPacket, ConnectionState, Settings
-│   │       │       ├── sensors/     # SteeringSensorManager (fused rotation + filter)
-│   │       │       ├── network/     # NetworkClient (TCP socket, heartbeat, ping)
-│   │       │       ├── settings/    # SettingsRepository (DataStore persistence)
-│   │       │       ├── viewmodel/   # ControllerViewModel (input loop & haptics)
-│   │       │       └── ui/
-│   │       │           ├── theme/       # Dark cockpit palette & typography
-│   │       │           ├── components/  # SteeringWheelView, TactileButtons, Chevrons
-│   │       │           └── screens/     # ControllerScreen, ConnectionScreen, Settings
-│   │       └── test/                # SteeringMathTest, PacketSerializationTest
-│   ├── build.gradle.kts
-│   ├── settings.gradle.kts
-│   └── gradlew
-│
-├── pc_companion/                    # PC Companion Application (Python 3)
-│   ├── requirements.txt             # Dependencies (vgamepad)
-│   ├── run_pc_companion.py          # Application entry launcher
-│   ├── config.json                  # Configurable ports and button mappings
-│   ├── src/
-│   │   ├── app.py                   # Desktop application coordinator
-│   │   ├── config.py                # Configuration loader & local IP discovery
-│   │   ├── protocol.py              # Protocol parser, clamping, pong generator
-│   │   ├── server.py                # Async TCP server & 500ms watchdog timer
-│   │   ├── controller/
-│   │   │   ├── base.py              # AbstractGamepad interface
-│   │   │   ├── vgamepad_output.py   # Windows ViGEmBus Xbox 360 controller output
-│   │   │   └── mock_output.py       # Cross-platform / test fallback driver
-│   │   └── ui/
-│   │       ├── web_ui.py            # Live HTML5/CSS3 Web Control Panel
-│   │       └── cli_ui.py            # ANSI Terminal HUD with live meters
-│   └── tests/
-│       ├── run_tests.py             # Standalone test runner
-│       ├── test_protocol.py         # Packet parsing & clamping tests
-│       ├── test_safety.py           # Watchdog timeout & neutral safety tests
-│       ├── test_controller.py       # Controller output tests
-│       └── test_server.py           # TCP socket server workflow tests
-│
-└── README.md
-```
+For players who want to jump into a race immediately:
+
+1. **PC**: Install [ViGEmBus](https://github.com/nefarius/ViGEmBus/releases/latest) on your Windows PC.
+2. **PC**: Open terminal in `pc_companion/`, install dependencies, and run:
+   ```bash
+   pip install -r requirements.txt
+   python run_pc_companion.py
+   ```
+3. **Phone**: Install `app-debug.apk` onto your Android phone and open **ApexWheel**.
+4. **Connect**: Tap the connection badge on your phone, tap **Scan PC QR Code**, and point your camera at the QR code in your PC terminal or on `http://localhost:8080`.
+5. **Race**: Hold your phone horizontally, tap **Calibrate**, launch your favorite racing game, and drive!
 
 ---
 
-## Controller Input Mapping
+<a id="system-requirements"></a>
+## 📋 System Requirements & Prerequisites
 
-| UI Control | Virtual Gamepad Target (Xbox 360) | Range / Action |
-|---|---|---|
-| **Steering** | Left Thumbstick X-Axis | Analog `-1.0` (Full Left) to `+1.0` (Full Right) |
-| **Accelerator** | Right Trigger (RT) | Analog `0.0` to `1.0` (mapped to `0..255`) |
-| **Brake** | Left Trigger (LT) | Analog `0.0` to `1.0` (mapped to `0..255`) |
-| **Clutch** | Button `X` (or Left Shoulder) | Analog / digital clutch disengage |
-| **E-Brake** | Button `A` | Handbrake toggle / hold |
-| **Gear Up** | Right Shoulder (`RB`) | Shift up transmission |
-| **Gear Down** | Left Shoulder (`LB`) | Shift down transmission |
-| **Select** | Back / View Button | In-game telemetry / camera switch |
-| **Start** | Start / Menu Button | Game pause / main menu |
+### PC Side
+- **OS**: Windows 10 / 11 (64-bit) for physical gaming. *(Linux & macOS supported for development / mock mode).*
+- **Python**: Python 3.10 or newer ([python.org](https://www.python.org/downloads/)).
+- **Driver (Windows only)**: [ViGEmBus v1.22+](https://github.com/nefarius/ViGEmBus/releases) to emulate physical Xbox 360 controller hardware.
+- **Network**: Wi-Fi network shared with your Android phone.
 
-*Note: All button assignments can be customized in `pc_companion/config.json`.*
+### Android Device Side
+- **OS**: Android 10.0+ (API Level 29+).
+- **Hardware**: Device with an internal Gyroscope and Accelerometer (virtually all modern smartphones).
+- **Permissions**: Camera permission (required for scanning the connection QR code).
 
----
-
-## Disconnect Safety & Failsafe Watchdog
-
-For racing games, safety under packet loss or unexpected disconnections is critical:
-- **500ms Watchdog**: If the PC Companion stops receiving packets from the phone for more than 500 milliseconds (due to Wi-Fi dropouts, incoming calls, or app backgrounding), the watchdog immediately triggers an **emergency failsafe**:
-  - Steering is reset to `0.0` (straight ahead).
-  - Throttle and Brake are reset to `0.0` (prevents runaway acceleration into a wall).
-  - All held buttons are immediately released.
-- On client socket disconnect or application shutdown, `gamepad.reset_all()` is executed unconditionally.
+### For Developers Building from Source
+- **JDK**: Java Development Kit 21 (JDK 21 is strongly recommended; avoid JDK 25+ due to Gradle 8 compatibility).
+- **Android SDK**: Android SDK Build-Tools 34+ / Platform SDK 36.
 
 ---
 
-## Setup & Installation
+<a id="step-1-pc-companion"></a>
+## 🖥️ Step 1: Setting Up the PC Companion
 
-### 1. PC Companion (Windows 10 / 11)
+The PC Companion listens for UDP/TCP packets from your phone over your local network and forwards them into Windows as real Xbox 360 controller hardware events.
 
-#### Step 1: Install ViGEmBus Driver
-The Virtual Gamepad Emulation Bus (`ViGEmBus`) is required on Windows to emulate a physical Xbox 360 controller:
-1. Download the latest installer from the official release page:
-   [ViGEmBus Releases on GitHub](https://github.com/nefarius/ViGEmBus/releases)
-2. Run `ViGEmBus_Setup_x64.exe` and follow the prompt (requires administrator privileges).
+<a id="windows-installation"></a>
+### Windows Installation (Gaming Mode with ViGEmBus)
 
-#### Step 2: Install Python Dependencies
+1. **Install ViGEmBus**:
+   - Download `ViGEmBus_Setup_x64.exe` from the [Official ViGEmBus Releases](https://github.com/nefarius/ViGEmBus/releases).
+   - Run the installer and finish setup (requires administrator rights).
+2. **Set up Python Virtual Environment (Recommended)**:
+   Open Command Prompt or PowerShell in the project root:
+   ```cmd
+   cd pc_companion
+   python -m venv venv
+   .\venv\Scripts\activate
+   ```
+3. **Install Requirements**:
+   ```cmd
+   pip install -r requirements.txt
+   ```
+   *This installs `vgamepad`, `qrcode`, and other dependencies.*
+
+<a id="linux-macos-installation"></a>
+### Linux / macOS Installation (Developer / Mock Mode)
+
+On Linux or macOS, physical Windows gamepad emulation is unavailable, but you can run in **Mock Mode** to test networking, telemetry, web dashboards, and JSON protocols:
+
 ```bash
 cd pc_companion
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+python run_pc_companion.py --mock
 ```
 
-#### Step 3: Run the PC Companion
+<a id="running-the-pc-companion"></a>
+### Running the PC Companion
+
+Start the companion application:
+
 ```bash
+# Standard startup (Windows gaming mode)
 python run_pc_companion.py
+
+# Optional: Override listening port or web UI port
+python run_pc_companion.py --port 9876 --web-port 8080
 ```
 
-The companion will start and display:
-1. Your PC's local network IP address (e.g. `192.168.1.15`).
-2. The listening TCP port (default `9876`).
-3. The Web Control Panel URL: `http://localhost:8080`.
+Once running, your terminal will display:
+- The active Gamepad Driver (`ViGEmBus (Virtual Xbox 360 Gamepad)` or `Mock Output`).
+- Your PC's Local Network IP Addresses (e.g. `192.168.1.150`).
+- A clean **ASCII QR Code** directly in the terminal for instant mobile scanning.
+- An embedded Web Dashboard URL: `http://localhost:8080`.
 
-Open `http://localhost:8080` in your browser to view the live dashboard with real-time steering gauges, pedal meters, and connection diagnostics.
+> [!TIP]
+> Open `http://localhost:8080` in any web browser on your PC to view the live cockpit dashboard with real-time analog steering gauges, pedal meters, packet rates, and network ping diagnostics.
 
-#### Firewall Permission
-When running the PC companion for the first time, Windows Defender Firewall will ask to allow Python on Private Networks. Ensure you check **"Private networks"** and click **Allow access**.
+<a id="firewall-network-configuration"></a>
+### Firewall & Network Configuration
+
+When running for the first time, Windows Defender Firewall will prompt you:
+- Check **"Private networks, such as my home or work network"**.
+- Click **"Allow access"**.
+- Ensure both PC and phone are connected to the same Wi-Fi router / SSID.
+- If using public or university Wi-Fi with client isolation, enable a mobile hotspot on your phone or PC and connect both devices to it.
 
 ---
 
-### 2. Android Application
+<a id="step-2-android-app"></a>
+## 📱 Step 2: Setting Up the Android App
 
-#### Step 1: Build the APK
-From the `android_app` directory:
-```bash
-./gradlew assembleDebug
-```
-The compiled APK will be created at:
-`android_app/app/build/outputs/apk/debug/app-debug.apk`
+<a id="option-a-install-apk"></a>
+### Option A: Install Pre-Built APK (Recommended)
 
-#### Step 2: Install onto Android Device
-Connect your Android phone via USB with USB Debugging enabled, and run:
-```bash
-adb install android_app/app/build/outputs/apk/debug/app-debug.apk
-```
+1. Locate the compiled APK at:
+   - `android_app/app/build/outputs/apk/debug/app-debug.apk`
+   - or directly from your downloads folder if generated (`~/Downloads/app-debug.apk`).
+2. **Install via ADB (Fastest)**:
+   ```bash
+   adb install -r android_app/app/build/outputs/apk/debug/app-debug.apk
+   ```
+3. **Or Transfer Directly**:
+   Copy `app-debug.apk` to your phone via USB cable, Google Drive, or local file sharing, tap it in your phone's file manager, and choose **Install**.
 
-#### Step 3: Connect to PC (Instant QR Code or Manual)
-1. Ensure your phone and PC are connected to the **same Wi-Fi network**.
-2. Open **ApexWheel** on your phone.
-3. Tap the connection indicator in the top bar to open the **Connection Screen**.
-4. **Scan QR Code**:
-   - Tap the **"Scan PC QR Code"** button.
-   - Point your phone camera at the QR code displayed in your PC terminal or on the Web Dashboard (`http://localhost:8080`).
-   - The app will instantly read the IP and port, establish the connection, and return you to the cockpit ready to race!
-5. *(Alternative)* You can also enter the PC's IP address manually and tap **Connect to PC**.
+<a id="option-b-build-source"></a>
+### Option B: Build from Source with Gradle
 
----
+If you are customizing code or adding features:
 
-## Calibration & Tuning
-
-1. **Neutral Calibration**:
-   - Hold your phone horizontally at your preferred natural racing angle.
-   - Tap the **Calibrate** button on the top HUD.
-   - The current phone orientation is locked as the neutral center (`0.0`).
-2. **Steering Dynamics (Settings Screen)**:
-   - **Sensitivity**: Adjust from `0.5x` (steady GT3 style) to `2.5x` (quick response rally / drift).
-   - **Range**: Customize maximum physical tilt required for full lock (from `±20°` to `±90°`, default `±45°`).
-   - **Dead Zone**: Filter out resting hand micro-shakes (`0%` to `15%`, default `3%`).
-   - **Smoothing Filter**: Low-pass filter to eliminate sensor jitter while maintaining sub-5ms response time.
-   - **Touch Steering**: Enable to drag the on-screen steering wheel directly instead of using motion tilt.
+1. Open a terminal in `android_app/`.
+2. Ensure `JAVA_HOME` points to JDK 21:
+   ```bash
+   export JAVA_HOME=/path/to/jdk-21
+   ```
+   *(Or set `org.gradle.java.home` in `android_app/gradle.properties`)*.
+3. Build the debug package:
+   ```bash
+   ./gradlew assembleDebug
+   ```
+4. The output APK will be generated at `app/build/outputs/apk/debug/app-debug.apk`.
 
 ---
 
-## Running Verification Tests
+<a id="step-3-connecting"></a>
+## 🔗 Step 3: Connecting Phone to PC
 
-### Android Unit Tests
-```bash
-cd android_app
-./gradlew test
+<a id="method-1-qr-scan"></a>
+### Method 1: Instant QR Code Scan (Fastest)
+
+1. Launch **ApexWheel** on your phone.
+2. Tap the **Connection Status Pill** (or gear icon) on the top-right HUD to open the **Connection Screen**.
+3. Tap **"Scan PC QR Code"**.
+4. Grant camera permission if requested.
+5. Point your camera at either:
+   - The QR code printed in your **PC Terminal**, or
+   - The QR code shown on the Web Dashboard (`http://localhost:8080`).
+6. The app instantly parses the IP address and port, connects within milliseconds, and returns you to the active cockpit screen!
+
+<a id="method-2-manual-ip"></a>
+### Method 2: Manual IP Entry
+
+1. Look at the IP address printed in your PC companion console (e.g. `192.168.1.150`).
+2. In the app's Connection Screen, type the IP into the **PC Server IP** field.
+3. Keep default port `9876` (or enter your custom port).
+4. Tap **"Connect to PC"**.
+5. The status pill will switch from yellow `CONNECTING` to glowing green `CONNECTED (X ms)`.
+
+---
+
+<a id="step-4-game-config"></a>
+## 🎮 Step 4: Configuring Your PC Games
+
+Once connected, Windows registers a physical **Xbox 360 Controller for Windows**. No third-party key mapping software (JoyToKey, x360ce) is necessary.
+
+1. **Verify Controller in Windows**:
+   - Press `Win + R`, type `joy.cpl`, and press Enter.
+   - You should see **"Controller (XBOX 360 For Windows)"** with status **OK**.
+   - Double-click it to see live movement when you tilt your phone or press pedals.
+2. **In Racing Games**:
+   - Launch your game (*Forza Horizon 5*, *Assetto Corsa*, *F1 24*, *iRacing*, *BeamNG*, etc.).
+   - Go to **Settings > Controls / Controller Settings**.
+   - Select **Gamepad / Controller (Xbox 360)**.
+   - The steering axis is automatically bound to **Left Stick X**, Acceleration to **Right Trigger (RT)**, and Brakes to **Left Trigger (LT)**.
+
+---
+
+<a id="cockpit-interface"></a>
+## 🕹️ Cockpit Interface & Input Mappings
+
+<a id="default-mapping"></a>
+### Default Xbox 360 Controller Mapping
+
+| Mobile Cockpit Control | Xbox 360 Gamepad Output | Behavior & Range |
+|---|---|---|
+| **Motion Steering Tilt** | **Left Thumbstick X** | Analog `-1.0` (Full Left) to `+1.0` (Full Right) |
+| **Accelerator Button (Accl)** | **Right Trigger (RT)** | Analog `0.0` to `1.0` (mapped to `0..255`) |
+| **Brake Button (Brake)** | **Left Trigger (LT)** | Analog `0.0` to `1.0` (mapped to `0..255`) |
+| **Clutch Button** | **Button X** (or Left Bumper) | Digital clutch bite toggle |
+| **E-Brake Button `(!)`** | **Button A** | Handbrake lock |
+| **Gear Up Chevron `(▲)`** | **Right Bumper (`RB`)** | Sequential shift up |
+| **Gear Down Chevron `(▼)`** | **Left Bumper (`LB`)** | Sequential shift down |
+| **Select Pill** | **Back / View** | Telemetry / camera switch / replay |
+| **Start Pill** | **Start / Menu** | Pause menu |
+
+> [!NOTE]
+> All gamepad button assignments can be freely remapped in `pc_companion/config.json`.
+
+<a id="cockpit-layout"></a>
+### Cockpit Features & Layout
+
 ```
-Runs unit tests for:
-- Dead zone calculations, sensitivity curve scaling, inversion, and clamping.
-- Packet JSON serialization and schema compatibility.
+┌─────────────────────────────────────────────────────────────────────────┐
+│ [🏎️ F1 Logo] [Calibrate] [Sens: 1.0x]   [RPM REV LIGHTS]   [🟢 Connected]│
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│   ( BRAKE )                   ┌──────────────┐                 ( ACCL ) │
+│   [ Crimson ]                 │ STEER  +0.0° │                 [Emerald]│
+│                               └──────────────┘                          │
+│                                                                         │
+│   ( CLUTCH )                    ╭──────────╮                   ▲ GEAR UP│
+│   [ U-Pedal ]                  │    F1    │                             │
+│                                │  WHEEL   │                   ▼ GEAR DN │
+│                                 ╰──────────╯                            │
+│                               ( E-BRAKE [!] )                           │
+│                                                                         │
+│                              [ Select ] [ Start ]                       │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
-### PC Companion Unit Tests
+- **RPM Shift Light Strip**: Dynamic 15-LED progressive rev bar at the top (Green $\rightarrow$ Red $\rightarrow$ Flashing Blue).
+- **Steering Telemetry Badge (`STEER +0.0°`)**: Motec-style digital telemetry HUD positioned cleanly above the wheel with an active LED dot (emerald green when straight, team accent when turning).
+- **Circular Racing Wheel**: Authentic circular rim with perforated leather grips, 12 o'clock racing stripe, 3-spoke carbon hub, and rotating official team emblem.
+- **Expressive Tactile Buttons**: Spring-compressed micro-animations (`0.88f` scale), neon radiance bloom, and high-contrast illuminated glyphs when pressed.
+
+<a id="f1-liveries"></a>
+### F1 Team Liveries & Steering Wheels
+
+Tap the team badge in the top-left HUD to open the **F1 Theme Selector**. Choose between 10 official team liveries with custom team colors and authentic vector emblems:
+
+- **Red Bull Racing** (Matte Navy, Racing Yellow, Crimson Red)
+- **Scuderia Ferrari** (Rosso Corsa, Italian Modena Yellow, White)
+- **Mercedes-AMG Petronas** (Petronas Electric Cyan, Obsidian Black, Silver)
+- **McLaren F1 Team** (Papaya Orange, Anthracite Grey, Sky Blue)
+- **Aston Martin Aramco** (British Racing Green, Lime Essence, Silver)
+- **BWT Alpine** (Alpine Racing Blue, BWT Vibrant Pink, Carbon)
+- **Williams Racing** (Gulf Deep Navy, Heritage Light Blue)
+- **Kick Sauber** (Neon Fluo Green, Stealth Carbon Black)
+- **MoneyGram Haas** (Championship Red, Cool White, Charcoal)
+- **Visa Cash App RB** (Toro Metallic Blue, Bright White, Bulls Red)
+
+---
+
+<a id="calibration-tuning"></a>
+## 🎯 Sensor Calibration & Tuning
+
+### Neutral Position Calibration
+1. Sit in your driving posture and hold your phone horizontally at your most comfortable angle.
+2. Tap the **Calibrate** button on the top HUD bar.
+3. This sets your current tilt angle as `0.0°` (straight ahead), allowing you to hold your phone naturally without wrist fatigue.
+
+### Customizing Steering Dynamics (Settings)
+Tap the gear icon on the top bar to adjust:
+- **Sensitivity (`0.5x` to `2.5x`)**: Controls how fast steering reacts. Use `0.8x - 1.0x` for smooth GT3 racing and `1.6x - 2.2x` for drifting / rallying.
+- **Max Steering Angle (`±20°` to `±90°`)**: Degrees of physical phone tilt needed to reach full 100% steering lock (default `±45°`).
+- **Dead Zone (`0%` to `15%`)**: Eliminates unintentional trembling when your hands are steady (default `3%`).
+- **Smoothing Filter**: Low-pass exponential smoothing to filter out sensor noise without adding latency.
+- **Touch Steering Toggle**: Switch between motion steering and dragging the wheel directly with your thumb.
+
+---
+
+<a id="disconnect-safety"></a>
+## 🛡️ Disconnect Safety & Failsafe Watchdog
+
+Safety under packet loss or Wi-Fi interference is paramount in sim racing:
+
+- **500ms Watchdog Timer**: If the PC Companion misses packets for more than 500 ms (e.g. phone receives a call or drops Wi-Fi), the watchdog immediately triggers an emergency neutral state:
+  - Steering instantly returns to center (`0.0`).
+  - Throttle and Brake are reset to `0.0` (preventing stuck accelerator crashes).
+  - All pressed buttons are immediately released.
+- **Graceful Shutdown**: When you close the phone app or stop the PC companion (`Ctrl + C`), the virtual controller is reset cleanly and unmounted from Windows without leaving phantom inputs.
+
+---
+
+<a id="troubleshooting"></a>
+## 🔧 Troubleshooting & Common Issues
+
+### 1. Phone Cannot Connect to PC / Connection Timed Out
+- **Check Wi-Fi Network**: Ensure both your phone and PC are connected to the exact same Wi-Fi router (not one on cellular data and one on Wi-Fi).
+- **Windows Firewall**: Make sure Python has inbound permissions on private networks. You can run this in administrator PowerShell to unblock port `9876`:
+  ```powershell
+  New-NetFirewallRule -DisplayName "ApexWheel Companion" -Direction Inbound -LocalPort 9876,8080 -Protocol TCP -Action Allow
+  ```
+- **Router Client Isolation**: Some guest/hotel networks prevent devices from talking to each other. Use a Mobile Hotspot from your phone or PC if this occurs.
+
+### 2. ViGEmBus Error on Windows (`vgamepad.win.vigem.ViGEmBusNotFound`)
+- Ensure you ran `ViGEmBus_Setup_x64.exe` as Administrator and restarted your PC if prompted.
+- Verify in **Device Manager** under **System Devices** that **Virtual Gamepad Emulation Bus** is present and running without error flags.
+
+### 3. Gradle Build Failure (`Unsupported class file major version` or Java Errors)
+- Gradle 8.x is compatible with **JDK 17 or JDK 21**. If your system default is Java 25+, Gradle will fail.
+- Point Gradle to JDK 21 by adding the following line to `android_app/gradle.properties`:
+  ```properties
+  org.gradle.java.home=/path/to/jdk-21
+  ```
+
+### 4. Steering Tilts in the Opposite Direction
+- Go to the **Settings Screen** in the mobile app and toggle **Invert Steering Axis**.
+
+---
+
+<a id="unit-tests"></a>
+## 🧪 Running Unit Tests & Verification
+
+### PC Companion Tests
+Verify the protocol parser, clamping, watchdog failsafe, and mock controller:
 ```bash
 cd pc_companion
 python tests/run_tests.py
 ```
-Runs unit tests for:
-- Input packet parsing and bounds clamping (`[-1.0, 1.0]`, `[0.0, 1.0]`).
-- Heartbeat ping and pong packet validation.
-- Watchdog timeout neutral failsafe.
-- Mock gamepad state tracking.
-- Client socket connect/disconnect workflow.
+*Expected: All 5 test suites pass (100% test success).*
+
+### Android Unit Tests
+Verify mathematical sensor filtering, deadzone scaling, and JSON serialization:
+```bash
+cd android_app
+./gradlew testDebugUnitTest
+```
+*Expected: `BUILD SUCCESSFUL` with all unit tests passing.*
+
+---
+
+<a id="project-architecture"></a>
+## 📁 Project Architecture & Directory Layout
+
+```
+Steering Project/
+├── android_app/                         # Native Android Application (Kotlin + Jetpack Compose)
+│   ├── app/
+│   │   ├── build.gradle.kts             # Compile SDK 36, Min SDK 29, Java 21 target
+│   │   └── src/
+│   │       ├── main/
+│   │       │   ├── AndroidManifest.xml  # Permissions, orientations, custom scanner activity
+│   │       │   ├── res/                 # Vector scanner frame, team assets, layouts
+│   │       │   └── java/com/racing/controller/
+│   │       │       ├── MainActivity.kt
+│   │       │       ├── model/           # ControllerPacket, RacingTeam (F1 liveries)
+│   │       │       ├── sensors/         # SteeringSensorManager (fused rotation + filter)
+│   │       │       ├── network/         # NetworkClient (TCP socket, heartbeat, ping)
+│   │       │       ├── settings/        # SettingsRepository (DataStore persistence)
+│   │       │       ├── viewmodel/       # ControllerViewModel (input loop & haptics)
+│   │       │       └── ui/
+│   │       │           ├── components/  # Circular SteeringWheelView, TactileButtons, TelemetryBadge
+│   │       │           └── screens/     # ControllerScreen, ConnectionScreen, F1ThemeDialog
+│   │       └── test/                    # SteeringMathTest, PacketSerializationTest
+│   ├── build.gradle.kts
+│   └── gradle.properties                # JDK 21 configuration
+│
+├── pc_companion/                        # PC Server & Virtual Gamepad Engine (Python 3)
+│   ├── requirements.txt                 # Dependencies: vgamepad, qrcode
+│   ├── run_pc_companion.py              # Main CLI entry launcher
+│   ├── config.json                      # Configurable ports & button mappings
+│   ├── src/
+│   │   ├── app.py                       # Application coordinator & CLI argument parser
+│   │   ├── config.py                    # Config loader & IP auto-detection
+│   │   ├── protocol.py                  # Packet parsing, bounds clamping, pong response
+│   │   ├── server.py                    # Async TCP socket server & 500ms safety watchdog
+│   │   ├── controller/
+│   │   │   ├── base.py                  # AbstractGamepad interface
+│   │   │   ├── vgamepad_output.py       # Windows ViGEmBus Xbox 360 output driver
+│   │   │   └── mock_output.py           # Cross-platform / development driver
+│   │   └── ui/
+│   │       ├── web_ui.py                # Live HTML5/CSS3 Web Control Panel (Port 8080)
+│   │       └── cli_ui.py                # ANSI Terminal HUD with real-time ASCII meters
+│   └── tests/                           # Python unit test suite
+│
+└── README.md                            # Complete Project Documentation & Instructions
+```
+
+---
+
+## 📄 License & Attribution
+
+ApexWheel is developed as an open-source racing project.
+All team trademarks, vehicle names, and brand identifiers (Red Bull, Ferrari, Mercedes, McLaren, Aston Martin, Alpine, Williams, Sauber, Haas, VCARB) belong to their respective copyright and trademark owners and are referenced solely for personalization aesthetics.
