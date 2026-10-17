@@ -44,7 +44,7 @@ For players who want to jump into a race immediately:
 2. **PC**: Open terminal in `pc_companion/`, install dependencies, and run:
    ```bash
    pip install -r requirements.txt
-   python run pc_companion.py
+   python run_pc_companion.py
    ```
 3. **Phone**: Install `Apex-Wheel.apk` onto your Android phone from release section from this github page and open **ApexWheel**.
 4. **Connect**: Tap the connection badge on your phone, tap **Scan PC QR Code**, and point your camera at the QR code in your PC terminal or on `http://localhost:8080`.
