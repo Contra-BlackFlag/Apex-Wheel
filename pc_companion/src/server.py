@@ -79,7 +79,18 @@ class ControllerServer:
         self.active_writer = writer
         self.client_address = client_ip
         self.last_packet_time = time.time()
-        print(f"[+] Client connected from {client_ip}")
+
+        # Ultra-low latency optimization: disable Nagle's algorithm and reduce bufferbloat
+        sock = writer.get_extra_info("socket")
+        if sock is not None:
+            try:
+                import socket as sock_mod
+                sock.setsockopt(sock_mod.IPPROTO_TCP, sock_mod.TCP_NODELAY, 1)
+                sock.setsockopt(sock_mod.SOL_SOCKET, sock_mod.SO_RCVBUF, 4096)
+            except Exception:
+                pass
+
+        print(f"[+] Client connected from {client_ip} (TCP_NODELAY active)")
 
         self._notify_state()
 

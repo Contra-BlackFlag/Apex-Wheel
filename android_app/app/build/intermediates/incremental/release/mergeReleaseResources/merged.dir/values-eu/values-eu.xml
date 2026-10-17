@@ -87,4 +87,8 @@
     <string msgid="5946805113151406391" name="template_percent">"Ehuneko <ns1:g id="PERCENTAGE">%1$d</ns1:g>."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"aholkua"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"erakutsi aholkua"</string>
+    <string name="zxing_app_name">Barra-kode Eskanerra</string>
+    <string name="zxing_button_ok">Ados</string>
+    <string name="zxing_msg_camera_framework_bug">Barkatu, Android kamerak arazo bat izan du. Behar bada gailua berrabiarazi beharko duzu.</string>
+    <string name="zxing_msg_default_status">Kokatu barra-kode bat laukizuzenaren barruan eskaneatzeko.</string>
 </resources>

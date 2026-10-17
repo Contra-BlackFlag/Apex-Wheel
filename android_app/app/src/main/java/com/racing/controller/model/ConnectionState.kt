@@ -16,7 +16,7 @@ data class ControllerSettings(
     val invertSteering: Boolean = false,
     val smoothingFactor: Float = 0.20f, // 0.0 (raw) to 0.8 (heavy lowpass)
     val useTouchSteering: Boolean = false,
-    val updateRateHz: Int = 60, // 30, 60, 100
+    val updateRateHz: Int = 100, // 30, 60, 100, 120
     val hapticFeedbackEnabled: Boolean = true,
     val throttleRampEnabled: Boolean = false
 )

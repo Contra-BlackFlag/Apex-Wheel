@@ -87,4 +87,8 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g>%%"</string>
     <string msgid="3765533235322692011" name="tooltip_description">"dica"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"mostrar dica"</string>
+    <string name="zxing_app_name">Barcode Scanner</string>
+    <string name="zxing_button_ok">OK</string>
+    <string name="zxing_msg_camera_framework_bug">Desculpe, a câmera do Android encontrou um problema. Poderá precisar de reiniciar o dispositivo.</string>
+    <string name="zxing_msg_default_status">Alinhar código de barras com o exemplo para ser lido.</string>
 </resources>

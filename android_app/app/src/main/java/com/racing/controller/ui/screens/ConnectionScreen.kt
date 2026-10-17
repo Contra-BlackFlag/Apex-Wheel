@@ -55,7 +55,11 @@ import com.racing.controller.ui.theme.SurfaceControl
 import com.racing.controller.ui.theme.SurfaceDark
 import com.racing.controller.ui.theme.TextPrimary
 import com.racing.controller.ui.theme.TextSecondary
+import androidx.activity.compose.rememberLauncherForActivityResult
 import com.racing.controller.viewmodel.ControllerViewModel
+import androidx.compose.material.icons.filled.QrCodeScanner
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 
 @Composable
 fun ConnectionScreen(
@@ -68,6 +72,18 @@ fun ConnectionScreen(
 
     var hostIp by remember(settings.hostIp) { mutableStateOf(settings.hostIp) }
     var portStr by remember(settings.port) { mutableStateOf(settings.port.toString()) }
+
+    val scanLauncher = rememberLauncherForActivityResult(ScanContract()) { result ->
+        val contents = result.contents
+        if (!contents.isNullOrBlank()) {
+            val target = viewModel.handleScannedQr(contents)
+            if (target != null) {
+                hostIp = target.ip
+                portStr = target.port.toString()
+                onBack()
+            }
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -116,13 +132,63 @@ fun ConnectionScreen(
                 ) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Text(
-                            text = "Server Settings",
+                            text = "Instant Setup",
                             color = TextPrimary,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium
                         )
 
-                        Spacer(modifier = Modifier.height(14.dp))
+                        Spacer(modifier = Modifier.height(10.dp))
+
+                        Button(
+                            onClick = {
+                                val options = ScanOptions().apply {
+                                    setPrompt("Align the QR Code from your PC in the viewfinder")
+                                    setBeepEnabled(true)
+                                    setOrientationLocked(false)
+                                    setBarcodeImageEnabled(false)
+                                }
+                                scanLauncher.launch(options)
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = SurfaceControl
+                            ),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.fillMaxWidth().height(46.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.QrCodeScanner,
+                                contentDescription = "Scan QR",
+                                tint = TextPrimary,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "Scan PC QR Code",
+                                color = TextPrimary,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 14.sp
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        // Divider with text "OR MANUAL IP"
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Box(modifier = Modifier.weight(1f).height(1.dp).background(ControlBorderDark))
+                            Text(
+                                text = "  OR MANUAL IP  ",
+                                color = TextSecondary,
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Box(modifier = Modifier.weight(1f).height(1.dp).background(ControlBorderDark))
+                        }
+
+                        Spacer(modifier = Modifier.height(12.dp))
 
                         OutlinedTextField(
                             value = hostIp,

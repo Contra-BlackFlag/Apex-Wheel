@@ -87,4 +87,8 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> odstotkov"</string>
     <string msgid="3765533235322692011" name="tooltip_description">"opis orodja"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"pokaži opis orodja"</string>
+    <string name="zxing_app_name">Barcode Scanner</string>
+    <string name="zxing_button_ok">V redu</string>
+    <string name="zxing_msg_camera_framework_bug">Oprostite, Android kamera je naletela na težave. Mogoče boste morali ponovno zagnati napravo.</string>
+    <string name="zxing_msg_default_status">Za branje postavite črtno kodo znotraj iskala.</string>
 </resources>

@@ -353,6 +353,17 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             </div>
         </div>
 
+        <!-- Instant QR Code Quick Connect Card -->
+        <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <h2>Quick Connect (Scan from Phone)</h2>
+            <div style="background: white; padding: 12px; border-radius: 14px; margin: 12px 0; width: 170px; height: 170px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="/api/qr" alt="ApexWheel QR Code" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <p style="font-size: 13px; color: var(--text-secondary); max-width: 260px; line-height: 18px;">
+                Open <b>ApexWheel</b> on your phone, tap <b>Scan QR Code</b>, and point your camera here to connect instantly.
+            </p>
+        </div>
+
         <!-- System & Network Diagnostics Card -->
         <div class="card">
             <h2>Driver & Network Status</h2>
@@ -510,6 +521,27 @@ class WebDashboardServer:
                     b"HTTP/1.1 200 OK\r\n"
                     b"Content-Type: application/json\r\n"
                     b"Access-Control-Allow-Origin: *\r\n"
+                    b"Content-Length: " + str(len(body)).encode("ascii") + b"\r\n"
+                    b"Connection: close\r\n\r\n" + body
+                )
+            elif path.startswith("/api/qr"):
+                from ..qr_helper import get_qr_svg
+                state = self.get_state()
+                local_ips = state.get("local_ips", ["127.0.0.1"])
+                primary_ip = local_ips[0] if local_ips else "127.0.0.1"
+                port = state.get("port", 9876)
+                svg_data = get_qr_svg(primary_ip, port)
+                if svg_data:
+                    body = svg_data.encode("utf-8")
+                    content_type = b"image/svg+xml"
+                else:
+                    body = b"<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><text x='10' y='50'>No QR</text></svg>"
+                    content_type = b"image/svg+xml"
+
+                response = (
+                    b"HTTP/1.1 200 OK\r\n"
+                    b"Content-Type: " + content_type + b"\r\n"
+                    b"Cache-Control: no-cache\r\n"
                     b"Content-Length: " + str(len(body)).encode("ascii") + b"\r\n"
                     b"Connection: close\r\n\r\n" + body
                 )

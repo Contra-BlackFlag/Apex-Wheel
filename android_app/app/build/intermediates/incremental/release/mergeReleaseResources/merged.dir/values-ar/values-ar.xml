@@ -87,4 +87,8 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> في المئة."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"تلميح"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"إظهار التلميح"</string>
+    <string name="zxing_app_name">ماسح الرمز الشريطي</string>
+    <string name="zxing_button_ok">موافق</string>
+    <string name="zxing_msg_camera_framework_bug">عفوا، حدثت مشكلة في كاميرا جهاز Android. قد تحتاج إلى إعادة تشغيل الجهاز.</string>
+    <string name="zxing_msg_default_status">قم بوضع الرمز الشريطي داخل حدود صورة الكاميرا ليتم مسحه.</string>
 </resources>

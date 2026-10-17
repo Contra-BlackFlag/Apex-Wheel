@@ -60,10 +60,10 @@ class CompanionApplication:
         print("[*] Available Local IP Addresses:")
         for ip in self.local_ips:
             print(f"     -> {ip}")
-        print("--------------------------------------------------")
-        print("[*] Enter one of the above IP addresses into your")
-        print("    ApexWheel Android Controller app.")
-        print("==================================================")
+        from .qr_helper import print_terminal_qr
+
+        primary_ip = self.local_ips[0] if self.local_ips else "127.0.0.1"
+        print_terminal_qr(primary_ip, self.config.port)
 
         await self.server.start()
         await self.web_server.start()

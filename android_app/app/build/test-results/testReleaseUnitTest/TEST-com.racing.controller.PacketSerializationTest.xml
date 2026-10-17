@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.racing.controller.PacketSerializationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-17T10:54:22.185Z" hostname="fedora" time="0.066">
+<testsuite name="com.racing.controller.PacketSerializationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-17T11:42:35.339Z" hostname="fedora" time="0.087">
   <properties/>
-  <testcase name="testPacketSerializationAndSchema" classname="com.racing.controller.PacketSerializationTest" time="0.066"/>
+  <testcase name="testPacketSerializationAndSchema" classname="com.racing.controller.PacketSerializationTest" time="0.087"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

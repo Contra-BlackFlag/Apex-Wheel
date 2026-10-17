@@ -87,4 +87,8 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> prosenttia"</string>
     <string msgid="3765533235322692011" name="tooltip_description">"vihjeteksti"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"näytä vihjeteksti"</string>
+    <string name="zxing_app_name">Barcode Scanner</string>
+    <string name="zxing_button_ok">OK</string>
+    <string name="zxing_msg_camera_framework_bug">Valitettavasti Androidin kameran toimiinta häiriintyi. Joudut ehkä käynnistämään laitteen uudelleen.</string>
+    <string name="zxing_msg_default_status">Aseta viivakoodi neliön sisälle skannataksesi sen.</string>
 </resources>

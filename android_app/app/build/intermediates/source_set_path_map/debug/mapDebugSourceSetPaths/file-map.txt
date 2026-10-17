@@ -1,50 +1,51 @@
-com.racing.controller.app-material-release-0 /home/contra/.gradle/caches/8.13/transforms/0d02a8fac30d02178f69d65e31a20ae6/transformed/material-release/res
-com.racing.controller.app-activity-compose-1.10.1-1 /home/contra/.gradle/caches/8.13/transforms/10a6f1741955e7f6a7faa31e78f21626/transformed/activity-compose-1.10.1/res
-com.racing.controller.app-customview-poolingcontainer-1.0.0-2 /home/contra/.gradle/caches/8.13/transforms/166d54e47775aba8ff34223dcc4f92bf/transformed/customview-poolingcontainer-1.0.0/res
-com.racing.controller.app-core-1.17.0-3 /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/res
-com.racing.controller.app-navigation-runtime-ktx-2.8.5-4 /home/contra/.gradle/caches/8.13/transforms/1facd664ab500279f5e433cec2f450cf/transformed/navigation-runtime-ktx-2.8.5/res
-com.racing.controller.app-activity-ktx-1.10.1-5 /home/contra/.gradle/caches/8.13/transforms/243c23cc33c587d51dfc63dc2143875e/transformed/activity-ktx-1.10.1/res
-com.racing.controller.app-startup-runtime-1.1.1-6 /home/contra/.gradle/caches/8.13/transforms/2790e4118fcf970051a1e213984440db/transformed/startup-runtime-1.1.1/res
-com.racing.controller.app-datastore-preferences-release-7 /home/contra/.gradle/caches/8.13/transforms/286a3fd1021b38784a3e665d84c0c5b4/transformed/datastore-preferences-release/res
-com.racing.controller.app-lifecycle-process-2.9.3-8 /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/res
-com.racing.controller.app-core-viewtree-1.0.0-9 /home/contra/.gradle/caches/8.13/transforms/2e5340c11cc86b18f5ba053db236637d/transformed/core-viewtree-1.0.0/res
-com.racing.controller.app-lifecycle-viewmodel-ktx-2.9.3-10 /home/contra/.gradle/caches/8.13/transforms/32a0abe53c2ca1e99938e98dcc40a334/transformed/lifecycle-viewmodel-ktx-2.9.3/res
-com.racing.controller.app-profileinstaller-1.4.0-11 /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/res
-com.racing.controller.app-datastore-release-12 /home/contra/.gradle/caches/8.13/transforms/42c030e6cb56858b2fe8aa97c3456aa2/transformed/datastore-release/res
-com.racing.controller.app-lifecycle-livedata-core-2.9.3-13 /home/contra/.gradle/caches/8.13/transforms/5099da84ce29ce9a2acfe665d31c8fd2/transformed/lifecycle-livedata-core-2.9.3/res
-com.racing.controller.app-savedstate-compose-release-14 /home/contra/.gradle/caches/8.13/transforms/5aa0bf502c6ea0d6395722af58249285/transformed/savedstate-compose-release/res
-com.racing.controller.app-core-runtime-2.2.0-15 /home/contra/.gradle/caches/8.13/transforms/5dd69c66d554b56c6bd577f35c58ad6b/transformed/core-runtime-2.2.0/res
-com.racing.controller.app-material3-release-16 /home/contra/.gradle/caches/8.13/transforms/636e3d809fe95661e6411d39237b4aca/transformed/material3-release/res
-com.racing.controller.app-navigation-compose-2.8.5-17 /home/contra/.gradle/caches/8.13/transforms/6e855d44b20c7593060a1909877eefe4/transformed/navigation-compose-2.8.5/res
-com.racing.controller.app-annotation-experimental-1.4.1-18 /home/contra/.gradle/caches/8.13/transforms/7239618c4c59c0e7455b66363b59bf90/transformed/annotation-experimental-1.4.1/res
-com.racing.controller.app-ui-test-manifest-1.9.0-19 /home/contra/.gradle/caches/8.13/transforms/767f2b11e7b8a9aa8ef73b2f3d4c59d8/transformed/ui-test-manifest-1.9.0/res
-com.racing.controller.app-material-ripple-release-20 /home/contra/.gradle/caches/8.13/transforms/76fe3374187cb6831c1e2b98860bcd3e/transformed/material-ripple-release/res
-com.racing.controller.app-savedstate-ktx-1.3.1-21 /home/contra/.gradle/caches/8.13/transforms/79f9dbd295914fdbe140d9337ac1f251/transformed/savedstate-ktx-1.3.1/res
-com.racing.controller.app-foundation-release-22 /home/contra/.gradle/caches/8.13/transforms/7b44c38184bbf6c2511be8d9c509d0ba/transformed/foundation-release/res
-com.racing.controller.app-datastore-core-release-23 /home/contra/.gradle/caches/8.13/transforms/83253b206f6282a9aba451ae0c82ab1c/transformed/datastore-core-release/res
-com.racing.controller.app-lifecycle-runtime-compose-release-24 /home/contra/.gradle/caches/8.13/transforms/88e06e9144c3b0639f0b7e7f78647b98/transformed/lifecycle-runtime-compose-release/res
-com.racing.controller.app-lifecycle-viewmodel-release-25 /home/contra/.gradle/caches/8.13/transforms/8d1132c023976c260fb5e6feec3f0ef9/transformed/lifecycle-viewmodel-release/res
-com.racing.controller.app-core-ktx-1.17.0-26 /home/contra/.gradle/caches/8.13/transforms/9565a92fb0f8e5e62c8be54215a5024f/transformed/core-ktx-1.17.0/res
-com.racing.controller.app-ui-graphics-release-27 /home/contra/.gradle/caches/8.13/transforms/bd1680849cc13ac05fdf11492432ff51/transformed/ui-graphics-release/res
-com.racing.controller.app-lifecycle-viewmodel-compose-release-28 /home/contra/.gradle/caches/8.13/transforms/c109105896a3de2b9394a19976205ba3/transformed/lifecycle-viewmodel-compose-release/res
-com.racing.controller.app-activity-1.10.1-29 /home/contra/.gradle/caches/8.13/transforms/c10cd99507b82f8936b8ce7b6807725e/transformed/activity-1.10.1/res
-com.racing.controller.app-navigation-common-ktx-2.8.5-30 /home/contra/.gradle/caches/8.13/transforms/c1cd8ec2eb45c0a458452ddc6831eb4d/transformed/navigation-common-ktx-2.8.5/res
-com.racing.controller.app-material-icons-core-release-31 /home/contra/.gradle/caches/8.13/transforms/d0a42345230e6d82bddd474bc604b1e4/transformed/material-icons-core-release/res
-com.racing.controller.app-material-icons-extended-release-32 /home/contra/.gradle/caches/8.13/transforms/d1e2344c553ce93dbb0b3d81010debfb/transformed/material-icons-extended-release/res
-com.racing.controller.app-ui-release-33 /home/contra/.gradle/caches/8.13/transforms/d25321d4ef65cf129e5076b1cad94767/transformed/ui-release/res
-com.racing.controller.app-graphics-path-1.0.1-34 /home/contra/.gradle/caches/8.13/transforms/d85c054f86e9e057933c1198fdd23db4/transformed/graphics-path-1.0.1/res
-com.racing.controller.app-lifecycle-runtime-release-35 /home/contra/.gradle/caches/8.13/transforms/d8f1f159a384f501054693c0f669fd30/transformed/lifecycle-runtime-release/res
-com.racing.controller.app-lifecycle-viewmodel-savedstate-release-36 /home/contra/.gradle/caches/8.13/transforms/df015ef359a403850c04091c37a97560/transformed/lifecycle-viewmodel-savedstate-release/res
-com.racing.controller.app-savedstate-release-37 /home/contra/.gradle/caches/8.13/transforms/e9a35506bb50ff8f230bebb667589658/transformed/savedstate-release/res
-com.racing.controller.app-tracing-1.2.0-38 /home/contra/.gradle/caches/8.13/transforms/f196bac73a82dfaad705bd31fbffbeb6/transformed/tracing-1.2.0/res
-com.racing.controller.app-navigation-common-2.8.5-39 /home/contra/.gradle/caches/8.13/transforms/f2754038bff11604210df5e2215dce1b/transformed/navigation-common-2.8.5/res
-com.racing.controller.app-navigation-runtime-2.8.5-40 /home/contra/.gradle/caches/8.13/transforms/f9672b0f3e2666440e2f5480423059ba/transformed/navigation-runtime-2.8.5/res
-com.racing.controller.app-emoji2-1.4.0-41 /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/res
-com.racing.controller.app-pngs-42 /home/contra/Steering Project/android_app/app/build/generated/res/pngs/debug
-com.racing.controller.app-resValues-43 /home/contra/Steering Project/android_app/app/build/generated/res/resValues/debug
-com.racing.controller.app-updated_navigation_xml-44 /home/contra/Steering Project/android_app/app/build/generated/updated_navigation_xml/debug
-com.racing.controller.app-packageDebugResources-45 /home/contra/Steering Project/android_app/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
-com.racing.controller.app-packageDebugResources-46 /home/contra/Steering Project/android_app/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.racing.controller.app-debug-47 /home/contra/Steering Project/android_app/app/build/intermediates/merged_res/debug/mergeDebugResources
-com.racing.controller.app-debug-48 /home/contra/Steering Project/android_app/app/src/debug/res
-com.racing.controller.app-main-49 /home/contra/Steering Project/android_app/app/src/main/res
+com.racing.controller.app-customview-poolingcontainer-1.0.0-0 /home/contra/.gradle/caches/8.13/transforms/0443994b0b76ea322fb6e8cc19e91931/transformed/customview-poolingcontainer-1.0.0/res
+com.racing.controller.app-navigation-compose-2.8.5-1 /home/contra/.gradle/caches/8.13/transforms/09b2a243e160df19bf787da372d67abb/transformed/navigation-compose-2.8.5/res
+com.racing.controller.app-lifecycle-livedata-core-2.9.3-2 /home/contra/.gradle/caches/8.13/transforms/09d3c15d3a0d762d85db49a8885a0ccf/transformed/lifecycle-livedata-core-2.9.3/res
+com.racing.controller.app-lifecycle-viewmodel-ktx-2.9.3-3 /home/contra/.gradle/caches/8.13/transforms/0d0d973202c8e0a4c00b57856e3d04c8/transformed/lifecycle-viewmodel-ktx-2.9.3/res
+com.racing.controller.app-savedstate-ktx-1.3.1-4 /home/contra/.gradle/caches/8.13/transforms/1b2d16904bf5ad00fd21b9d5c95efa76/transformed/savedstate-ktx-1.3.1/res
+com.racing.controller.app-navigation-runtime-ktx-2.8.5-5 /home/contra/.gradle/caches/8.13/transforms/24ddb32d26f61b685ff3d0739255800b/transformed/navigation-runtime-ktx-2.8.5/res
+com.racing.controller.app-core-viewtree-1.0.0-6 /home/contra/.gradle/caches/8.13/transforms/3131e33ace5d60acc9d3e5e9a423c1ef/transformed/core-viewtree-1.0.0/res
+com.racing.controller.app-material-ripple-release-7 /home/contra/.gradle/caches/8.13/transforms/3155fe457a547a153afca79bb4441c0f/transformed/material-ripple-release/res
+com.racing.controller.app-material-icons-core-release-8 /home/contra/.gradle/caches/8.13/transforms/334c949b9bbd8a25048c4459988b3793/transformed/material-icons-core-release/res
+com.racing.controller.app-navigation-runtime-2.8.5-9 /home/contra/.gradle/caches/8.13/transforms/39ca468078f696e57583ea88cefcf815/transformed/navigation-runtime-2.8.5/res
+com.racing.controller.app-navigation-common-2.8.5-10 /home/contra/.gradle/caches/8.13/transforms/3aa69b148e89ee297357e80a54c02933/transformed/navigation-common-2.8.5/res
+com.racing.controller.app-lifecycle-runtime-release-11 /home/contra/.gradle/caches/8.13/transforms/3ac7a45191b79e1602c1887ebc62e694/transformed/lifecycle-runtime-release/res
+com.racing.controller.app-savedstate-release-12 /home/contra/.gradle/caches/8.13/transforms/3bb42bbe9ee6df71118303572837ac81/transformed/savedstate-release/res
+com.racing.controller.app-navigation-common-ktx-2.8.5-13 /home/contra/.gradle/caches/8.13/transforms/4563042324e2ca09987d1e5daa5d939d/transformed/navigation-common-ktx-2.8.5/res
+com.racing.controller.app-activity-ktx-1.10.1-14 /home/contra/.gradle/caches/8.13/transforms/46173124d08a5f8bc914055ff6a72214/transformed/activity-ktx-1.10.1/res
+com.racing.controller.app-lifecycle-runtime-compose-release-15 /home/contra/.gradle/caches/8.13/transforms/5a6268e3d7e4790cb2a98910f98b6d6a/transformed/lifecycle-runtime-compose-release/res
+com.racing.controller.app-savedstate-compose-release-16 /home/contra/.gradle/caches/8.13/transforms/5d39f4a6235c44b54f018fe4c1b737d5/transformed/savedstate-compose-release/res
+com.racing.controller.app-datastore-core-release-17 /home/contra/.gradle/caches/8.13/transforms/601cdf3628ec6980b787cc70ba4e99f0/transformed/datastore-core-release/res
+com.racing.controller.app-profileinstaller-1.4.0-18 /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/res
+com.racing.controller.app-activity-compose-1.10.1-19 /home/contra/.gradle/caches/8.13/transforms/71cf753c227cc26095e40fa8cd79fb24/transformed/activity-compose-1.10.1/res
+com.racing.controller.app-foundation-release-20 /home/contra/.gradle/caches/8.13/transforms/71eee851266e62764ad692e7bf3232e7/transformed/foundation-release/res
+com.racing.controller.app-tracing-1.2.0-21 /home/contra/.gradle/caches/8.13/transforms/7b545e782f3ac4ed34d6e850a21bae18/transformed/tracing-1.2.0/res
+com.racing.controller.app-material-release-22 /home/contra/.gradle/caches/8.13/transforms/7b858a3f0d3c850f59148c212ecbbc31/transformed/material-release/res
+com.racing.controller.app-lifecycle-viewmodel-release-23 /home/contra/.gradle/caches/8.13/transforms/856a873a81f8724b33512ed0718aa202/transformed/lifecycle-viewmodel-release/res
+com.racing.controller.app-datastore-release-24 /home/contra/.gradle/caches/8.13/transforms/9085020b090fa1d2c1562ebef831ca53/transformed/datastore-release/res
+com.racing.controller.app-activity-1.10.1-25 /home/contra/.gradle/caches/8.13/transforms/918c53cadae7a40f99467fe61f8300a8/transformed/activity-1.10.1/res
+com.racing.controller.app-annotation-experimental-1.4.1-26 /home/contra/.gradle/caches/8.13/transforms/978ac2467a8e85e7f32339c371a83499/transformed/annotation-experimental-1.4.1/res
+com.racing.controller.app-core-runtime-2.2.0-27 /home/contra/.gradle/caches/8.13/transforms/98478597086339ef09c303d5e31f89c3/transformed/core-runtime-2.2.0/res
+com.racing.controller.app-zxing-android-embedded-4.3.0-28 /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/res
+com.racing.controller.app-material3-release-29 /home/contra/.gradle/caches/8.13/transforms/9ea38fb7973a53b08964424a033ad1a0/transformed/material3-release/res
+com.racing.controller.app-ui-release-30 /home/contra/.gradle/caches/8.13/transforms/a1bbd354ec4cd098502ada409af89735/transformed/ui-release/res
+com.racing.controller.app-material-icons-extended-release-31 /home/contra/.gradle/caches/8.13/transforms/a6871fad2fc4a5b3a3fd74069f5b63fa/transformed/material-icons-extended-release/res
+com.racing.controller.app-emoji2-1.4.0-32 /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/res
+com.racing.controller.app-core-1.17.0-33 /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/res
+com.racing.controller.app-core-ktx-1.17.0-34 /home/contra/.gradle/caches/8.13/transforms/d28cd3224fb93054f62d7fe27e9f3e5d/transformed/core-ktx-1.17.0/res
+com.racing.controller.app-ui-test-manifest-1.9.0-35 /home/contra/.gradle/caches/8.13/transforms/d3f04839a58d14080e551157ae04ceba/transformed/ui-test-manifest-1.9.0/res
+com.racing.controller.app-startup-runtime-1.1.1-36 /home/contra/.gradle/caches/8.13/transforms/d60edfae32836f030676d3e3aa61f66b/transformed/startup-runtime-1.1.1/res
+com.racing.controller.app-datastore-preferences-release-37 /home/contra/.gradle/caches/8.13/transforms/dbdac4ae6387f7142e1c20c43ebc6d45/transformed/datastore-preferences-release/res
+com.racing.controller.app-graphics-path-1.0.1-38 /home/contra/.gradle/caches/8.13/transforms/e40df2905c3ead52feef23d49bc5749b/transformed/graphics-path-1.0.1/res
+com.racing.controller.app-ui-graphics-release-39 /home/contra/.gradle/caches/8.13/transforms/e56a2f4f257a263e856e4f72f8c09d5b/transformed/ui-graphics-release/res
+com.racing.controller.app-lifecycle-process-2.9.3-40 /home/contra/.gradle/caches/8.13/transforms/f0228bad7f2c22c401ffa1a1c054c302/transformed/lifecycle-process-2.9.3/res
+com.racing.controller.app-lifecycle-viewmodel-savedstate-release-41 /home/contra/.gradle/caches/8.13/transforms/f4012b586c9df01d71abb7aee5336b72/transformed/lifecycle-viewmodel-savedstate-release/res
+com.racing.controller.app-lifecycle-viewmodel-compose-release-42 /home/contra/.gradle/caches/8.13/transforms/fe30ae8124f6e3c0813998157a0c6e91/transformed/lifecycle-viewmodel-compose-release/res
+com.racing.controller.app-pngs-43 /home/contra/Steering Project/android_app/app/build/generated/res/pngs/debug
+com.racing.controller.app-resValues-44 /home/contra/Steering Project/android_app/app/build/generated/res/resValues/debug
+com.racing.controller.app-updated_navigation_xml-45 /home/contra/Steering Project/android_app/app/build/generated/updated_navigation_xml/debug
+com.racing.controller.app-packageDebugResources-46 /home/contra/Steering Project/android_app/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.racing.controller.app-packageDebugResources-47 /home/contra/Steering Project/android_app/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.racing.controller.app-debug-48 /home/contra/Steering Project/android_app/app/build/intermediates/merged_res/debug/mergeDebugResources
+com.racing.controller.app-debug-49 /home/contra/Steering Project/android_app/app/src/debug/res
+com.racing.controller.app-main-50 /home/contra/Steering Project/android_app/app/src/main/res

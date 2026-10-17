@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.racing.controller.ui.components.GearArrows
+import com.racing.controller.ui.components.RevLightStrip
 import com.racing.controller.ui.components.SteeringWheelView
 import com.racing.controller.ui.components.TactileCircleButton
 import com.racing.controller.ui.components.TactileClutchButton
@@ -35,6 +36,7 @@ fun ControllerScreen(
     val connectionState by viewModel.connectionState.collectAsState()
     val steeringAngle by viewModel.steeringAngleDegrees.collectAsState()
     val settings by viewModel.settingsState.collectAsState()
+    val inputs by viewModel.inputs.collectAsState()
 
     DisposableEffect(Unit) {
         viewModel.onResumeScreen()
@@ -97,10 +99,18 @@ fun ControllerScreen(
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    // Rev Light Strip (glows red to green with accelerator press)
+                    RevLightStrip(
+                        throttle = inputs.throttle,
+                        width = 240.dp,
+                        height = 14.dp,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+
                     // Steering Wheel with crosshairs
                     SteeringWheelView(
                         rotationAngleDegrees = steeringAngle,
-                        diameter = 260.dp,
+                        diameter = 250.dp,
                         touchSteeringEnabled = settings.useTouchSteering,
                         onTouchSteer = { viewModel.setTouchSteering(it) }
                     )

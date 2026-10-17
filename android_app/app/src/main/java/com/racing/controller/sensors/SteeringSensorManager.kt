@@ -58,7 +58,7 @@ class SteeringSensorManager(context: Context) : SensorEventListener {
     }
 
     fun startListening() {
-        val delay = SensorManager.SENSOR_DELAY_GAME
+        val delay = SensorManager.SENSOR_DELAY_FASTEST
         rotationVectorSensor?.let {
             sensorManager.registerListener(this, it, delay)
         } ?: run {

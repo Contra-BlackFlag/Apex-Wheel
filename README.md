@@ -194,12 +194,15 @@ Connect your Android phone via USB with USB Debugging enabled, and run:
 adb install android_app/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-#### Step 3: Connect to PC
-1. Connect your phone to the **same Wi-Fi network** as your PC.
+#### Step 3: Connect to PC (Instant QR Code or Manual)
+1. Ensure your phone and PC are connected to the **same Wi-Fi network**.
 2. Open **ApexWheel** on your phone.
-3. Tap the connection pill at the top left to open the **Connection Screen**.
-4. Enter the PC's IP address displayed in the PC companion window and tap **Connect to PC**.
-5. Return to the controller cockpit.
+3. Tap the connection indicator in the top bar to open the **Connection Screen**.
+4. **Scan QR Code**:
+   - Tap the **"Scan PC QR Code"** button.
+   - Point your phone camera at the QR code displayed in your PC terminal or on the Web Dashboard (`http://localhost:8080`).
+   - The app will instantly read the IP and port, establish the connection, and return you to the cockpit ready to race!
+5. *(Alternative)* You can also enter the PC's IP address manually and tap **Connect to PC**.
 
 ---
 

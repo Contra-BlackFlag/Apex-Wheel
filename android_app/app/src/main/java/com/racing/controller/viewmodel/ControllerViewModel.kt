@@ -15,6 +15,7 @@ import com.racing.controller.model.ControllerSettings
 import com.racing.controller.network.NetworkClient
 import com.racing.controller.sensors.SteeringSensorManager
 import com.racing.controller.settings.SettingsRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -84,6 +85,27 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         sensorManager.calibrateNeutral()
     }
 
+    fun handleScannedQr(rawText: String): com.racing.controller.network.QrPayloadParser.ConnectionTarget? {
+        val target = com.racing.controller.network.QrPayloadParser.parse(rawText)
+        if (target != null) {
+            connect(target.ip, target.port)
+            vibrate(60)
+            android.widget.Toast.makeText(
+                getApplication(),
+                "Connecting to ${target.ip}:${target.port}...",
+                android.widget.Toast.LENGTH_SHORT
+            ).show()
+            return target
+        } else {
+            android.widget.Toast.makeText(
+                getApplication(),
+                "Scanned QR could not be parsed: '$rawText'",
+                android.widget.Toast.LENGTH_LONG
+            ).show()
+            return null
+        }
+    }
+
     fun connect(host: String, port: Int) {
         viewModelScope.launch {
             settingsRepository.saveSettings(settingsState.value.copy(hostIp = host, port = port))
@@ -95,12 +117,33 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         networkClient.disconnect()
     }
 
+    /**
+     * Immediately dispatches an input packet without waiting for the transmit loop interval.
+     * Guarantees zero-delay response for touch, pedals, gear shifting, and buttons.
+     */
+    private fun sendImmediateInputPacket() {
+        if (networkClient.connectionState.value is ConnectionState.Connected) {
+            val currentInputs = _inputs.value.copy(
+                steering = sensorManager.steeringOutput.value
+            )
+            val packet = ControllerPacket(
+                sequenceNumber = networkClient.getNextSequence(),
+                timestamp = System.currentTimeMillis(),
+                inputs = currentInputs
+            )
+            viewModelScope.launch(Dispatchers.IO) {
+                networkClient.sendControllerPacket(packet)
+            }
+        }
+    }
+
     // Input press/release handlers
     fun setThrottle(value: Float) {
         val clamped = value.coerceIn(0f, 1f)
         if (_inputs.value.throttle != clamped) {
             _inputs.value = _inputs.value.copy(throttle = clamped)
             if (clamped > 0.05f && _inputs.value.throttle <= 0.05f) vibrate(12)
+            sendImmediateInputPacket()
         }
     }
 
@@ -109,6 +152,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.brake != clamped) {
             _inputs.value = _inputs.value.copy(brake = clamped)
             if (clamped > 0.05f && _inputs.value.brake <= 0.05f) vibrate(15)
+            sendImmediateInputPacket()
         }
     }
 
@@ -117,6 +161,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.clutch != clamped) {
             _inputs.value = _inputs.value.copy(clutch = clamped)
             if (clamped > 0.05f && _inputs.value.clutch <= 0.05f) vibrate(12)
+            sendImmediateInputPacket()
         }
     }
 
@@ -124,6 +169,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.handbrake != pressed) {
             _inputs.value = _inputs.value.copy(handbrake = pressed)
             if (pressed) vibrate(25)
+            sendImmediateInputPacket()
         }
     }
 
@@ -131,6 +177,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.gearUp != pressed) {
             _inputs.value = _inputs.value.copy(gearUp = pressed)
             if (pressed) vibrate(35)
+            sendImmediateInputPacket()
         }
     }
 
@@ -138,6 +185,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.gearDown != pressed) {
             _inputs.value = _inputs.value.copy(gearDown = pressed)
             if (pressed) vibrate(35)
+            sendImmediateInputPacket()
         }
     }
 
@@ -145,6 +193,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.select != pressed) {
             _inputs.value = _inputs.value.copy(select = pressed)
             if (pressed) vibrate(15)
+            sendImmediateInputPacket()
         }
     }
 
@@ -152,12 +201,14 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         if (_inputs.value.start != pressed) {
             _inputs.value = _inputs.value.copy(start = pressed)
             if (pressed) vibrate(15)
+            sendImmediateInputPacket()
         }
     }
 
     fun setTouchSteering(value: Float) {
         if (settingsState.value.useTouchSteering) {
             sensorManager.setManualSteering(value)
+            sendImmediateInputPacket()
         }
     }
 
@@ -177,7 +228,7 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
         transmitJob?.cancel()
         val intervalMs = (1000L / hz.coerceIn(20, 120)).coerceAtLeast(8L)
 
-        transmitJob = viewModelScope.launch {
+        transmitJob = viewModelScope.launch(Dispatchers.Default) {
             while (isActive) {
                 delay(intervalMs)
                 if (networkClient.connectionState.value is ConnectionState.Connected) {

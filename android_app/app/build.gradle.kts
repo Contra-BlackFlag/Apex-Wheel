@@ -60,6 +60,10 @@ dependencies {
     // Preferences DataStore
     implementation(libs.androidx.datastore.preferences)
 
+    // QR Code Scanner
+    implementation(libs.zxing.android.embedded)
+    implementation(libs.zxing.core)
+
     // Unit testing
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

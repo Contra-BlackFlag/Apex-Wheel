@@ -87,4 +87,8 @@
     <string msgid="5946805113151406391" name="template_percent">"<ns1:g id="PERCENTAGE">%1$d</ns1:g> אחוזים."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"הסבר קצר"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"הצגת ההסבר הקצר"</string>
+    <string name="zxing_app_name">סורק ברקודים</string>
+    <string name="zxing_button_ok">אישור</string>
+    <string name="zxing_msg_camera_framework_bug">סליחה, מצלמת האנדרואיד נתקלה בבעיה. ייתכן שיהיה עליך להפעיל מחדש את המכשיר.</string>
+    <string name="zxing_msg_default_status">הצב ברקוד בתוך המלבן כדי לסרוק אותו.</string>
 </resources>

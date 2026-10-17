@@ -40,7 +40,7 @@ class NetworkClient(private val scope: CoroutineScope) {
     val packetsSentCount: StateFlow<Long> = _packetsSentCount.asStateFlow()
 
     private var socket: Socket? = null
-    private var writer: BufferedWriter? = null
+    private var rawOutputStream: java.io.OutputStream? = null
     private var reader: BufferedReader? = null
 
     private var connectJob: Job? = null
@@ -65,12 +65,17 @@ class NetworkClient(private val scope: CoroutineScope) {
         connectJob = scope.launch(Dispatchers.IO) {
             try {
                 val s = Socket()
-                s.tcpNoDelay = true // Vital for racing games: disable Nagle algorithm for lowest latency
+                s.tcpNoDelay = true // Disable Nagle algorithm: transmit immediately without waiting for full frame
+                try {
+                    s.trafficClass = 0x10 // IPTOS_LOWDELAY (RFC 1349 low-delay flag)
+                } catch (_: Exception) {}
+                s.sendBufferSize = 1024 // Tiny buffer to eliminate kernel buffering
+                s.receiveBufferSize = 1024
                 s.soTimeout = 4000 // 4s read timeout
                 s.connect(InetSocketAddress(host, port), 3500)
 
                 socket = s
-                writer = BufferedWriter(OutputStreamWriter(s.getOutputStream(), Charsets.UTF_8))
+                rawOutputStream = s.getOutputStream()
                 reader = BufferedReader(InputStreamReader(s.getInputStream(), Charsets.UTF_8))
 
                 _connectionState.value = ConnectionState.Connected(host, port, pingMs = 0)
@@ -95,15 +100,14 @@ class NetworkClient(private val scope: CoroutineScope) {
     }
 
     suspend fun sendControllerPacket(packet: ControllerPacket) = withContext(Dispatchers.IO) {
-        val w = writer ?: return@withContext
+        val out = rawOutputStream ?: return@withContext
         val s = socket ?: return@withContext
         if (!s.isConnected || s.isClosed) return@withContext
 
         try {
-            val jsonString = json.encodeToString(packet)
-            w.write(jsonString)
-            w.write("\n")
-            w.flush()
+            val jsonBytes = (json.encodeToString(packet) + "\n").toByteArray(Charsets.UTF_8)
+            out.write(jsonBytes)
+            out.flush()
             _packetsSentCount.value++
         } catch (e: Exception) {
             _connectionState.value = ConnectionState.Error("Send failed: ${e.localizedMessage}")
@@ -118,16 +122,15 @@ class NetworkClient(private val scope: CoroutineScope) {
         heartbeatJob = scope.launch(Dispatchers.IO) {
             while (isActive) {
                 delay(1000)
-                val w = writer ?: break
+                val out = rawOutputStream ?: break
                 val s = socket ?: break
                 if (!s.isConnected || s.isClosed) break
 
                 try {
                     val ping = HeartbeatPacket(timestamp = System.currentTimeMillis())
-                    val jsonStr = json.encodeToString(ping)
-                    w.write(jsonStr)
-                    w.write("\n")
-                    w.flush()
+                    val pingBytes = (json.encodeToString(ping) + "\n").toByteArray(Charsets.UTF_8)
+                    out.write(pingBytes)
+                    out.flush()
                 } catch (e: Exception) {
                     break
                 }
@@ -177,7 +180,7 @@ class NetworkClient(private val scope: CoroutineScope) {
         connectJob?.cancel()
 
         try {
-            writer?.close()
+            rawOutputStream?.close()
         } catch (_: Exception) {}
         try {
             reader?.close()
@@ -186,7 +189,7 @@ class NetworkClient(private val scope: CoroutineScope) {
             socket?.close()
         } catch (_: Exception) {}
 
-        writer = null
+        rawOutputStream = null
         reader = null
         socket = null
     }

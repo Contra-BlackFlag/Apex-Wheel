@@ -23,153 +23,208 @@
 15    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS" />
 15-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:8:5-85
 15-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:8:22-82
-16
-17    <uses-feature
-17-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:10:5-99
-18        android:name="android.hardware.sensor.accelerometer"
-18-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:10:19-71
-19        android:required="false" />
-19-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:10:72-96
-20    <uses-feature
-20-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:5-95
-21        android:name="android.hardware.sensor.gyroscope"
-21-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:19-67
-22        android:required="false" />
-22-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:68-92
-23
-24    <permission
-24-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
-25        android:name="com.racing.controller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-25-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
-26        android:protectionLevel="signature" />
-26-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
-27
-28    <uses-permission android:name="com.racing.controller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-28-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
-28-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
-29
-30    <application
-30-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:13:5-31:19
-31        android:allowBackup="true"
-31-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:14:9-35
-32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-32-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/1dd3449c3a0b32273fab38f92ceb684c/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
-33        android:debuggable="true"
-34        android:extractNativeLibs="false"
-35        android:icon="@mipmap/ic_launcher"
-35-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:15:9-43
-36        android:label="@string/app_name"
-36-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:16:9-41
-37        android:roundIcon="@mipmap/ic_launcher_round"
-37-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:17:9-54
-38        android:supportsRtl="true"
-38-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:18:9-35
-39        android:theme="@style/Theme.MobileRacingController" >
-39-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:19:9-60
-40        <activity
-40-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:20:9-30:20
-41            android:name="com.racing.controller.MainActivity"
-41-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:21:13-41
-42            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-42-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:24:13-87
-43            android:exported="true"
-43-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:22:13-36
-44            android:screenOrientation="sensorLandscape"
-44-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:23:13-56
-45            android:theme="@style/Theme.MobileRacingController" >
-45-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:25:13-64
-46            <intent-filter>
-46-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:26:13-29:29
-47                <action android:name="android.intent.action.MAIN" />
-47-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:27:17-69
-47-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:27:25-66
-48
-49                <category android:name="android.intent.category.LAUNCHER" />
-49-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:28:17-77
-49-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:28:27-74
-50            </intent-filter>
-51        </activity>
-52        <activity
-52-->[androidx.compose.ui:ui-tooling-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/0ebb98b983c74acb1f1c157a03b3b325/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
-53            android:name="androidx.compose.ui.tooling.PreviewActivity"
-53-->[androidx.compose.ui:ui-tooling-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/0ebb98b983c74acb1f1c157a03b3b325/transformed/ui-tooling/AndroidManifest.xml:24:13-71
-54            android:exported="true" />
-54-->[androidx.compose.ui:ui-tooling-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/0ebb98b983c74acb1f1c157a03b3b325/transformed/ui-tooling/AndroidManifest.xml:25:13-36
-55
-56        <provider
-56-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
-57            android:name="androidx.startup.InitializationProvider"
-57-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
-58            android:authorities="com.racing.controller.androidx-startup"
-58-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
-59            android:exported="false" >
-59-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
-60            <meta-data
-60-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
-61                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-61-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
-62                android:value="androidx.startup" />
-62-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/fec5ed028789b613710e1e8dbbeb20f9/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
-63            <meta-data
-63-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:29:13-31:52
-64                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-64-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:30:17-78
-65                android:value="androidx.startup" />
-65-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/2cae9d5582e286dd0479d47e26d525f3/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:31:17-49
-66            <meta-data
-66-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
-67                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-67-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
-68                android:value="androidx.startup" />
-68-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
-69        </provider>
-70
-71        <activity
-71-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/767f2b11e7b8a9aa8ef73b2f3d4c59d8/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:23:9-26:79
-72            android:name="androidx.activity.ComponentActivity"
-72-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/767f2b11e7b8a9aa8ef73b2f3d4c59d8/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:24:13-63
-73            android:exported="true"
-73-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/767f2b11e7b8a9aa8ef73b2f3d4c59d8/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:25:13-36
-74            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
-74-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/767f2b11e7b8a9aa8ef73b2f3d4c59d8/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:26:13-76
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:9:5-65
+16-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:9:22-62
+17
+18    <uses-feature
+18-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:5-85
+19        android:name="android.hardware.camera"
+19-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:19-57
+20        android:required="false" />
+20-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:11:58-82
+21    <uses-feature
+21-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:12:5-95
+22        android:name="android.hardware.camera.autofocus"
+22-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:12:19-67
+23        android:required="false" />
+23-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:12:68-92
+24    <uses-feature
+24-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:13:5-99
+25        android:name="android.hardware.sensor.accelerometer"
+25-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:13:19-71
+26        android:required="false" />
+26-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:13:72-96
+27    <uses-feature
+27-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:14:5-95
+28        android:name="android.hardware.sensor.gyroscope"
+28-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:14:19-67
+29        android:required="false" />
+29-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:14:68-92
+30
+31    <permission
+31-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+32        android:name="com.racing.controller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+32-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+33        android:protectionLevel="signature" />
+33-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+34
+35    <uses-permission android:name="com.racing.controller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+35-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+35-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+36
+37    <uses-feature
+37-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:28:5-30:36
+38        android:name="android.hardware.camera.front"
+38-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:29:9-53
+39        android:required="false" />
+39-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:30:9-33
+40    <uses-feature
+40-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:36:5-38:36
+41        android:name="android.hardware.camera.flash"
+41-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:37:9-53
+42        android:required="false" />
+42-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:38:9-33
+43    <uses-feature
+43-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:39:5-41:36
+44        android:name="android.hardware.screen.landscape"
+44-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:40:9-57
+45        android:required="false" />
+45-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:41:9-33
+46    <uses-feature
+46-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:42:5-44:36
+47        android:name="android.hardware.wifi"
+47-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:43:9-45
+48        android:required="false" />
+48-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:44:9-33
+49
+50    <application
+50-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:16:5-34:19
+51        android:allowBackup="true"
+51-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:17:9-35
+52        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+52-->[androidx.core:core:1.17.0] /home/contra/.gradle/caches/8.13/transforms/ca10d6ddcec0a7ae98a74ad665e561b9/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+53        android:debuggable="true"
+54        android:extractNativeLibs="false"
+55        android:icon="@mipmap/ic_launcher"
+55-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:18:9-43
+56        android:label="@string/app_name"
+56-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:19:9-41
+57        android:roundIcon="@mipmap/ic_launcher_round"
+57-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:20:9-54
+58        android:supportsRtl="true"
+58-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:21:9-35
+59        android:theme="@style/Theme.MobileRacingController" >
+59-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:22:9-60
+60        <activity
+60-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:23:9-33:20
+61            android:name="com.racing.controller.MainActivity"
+61-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:24:13-41
+62            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+62-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:27:13-87
+63            android:exported="true"
+63-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:25:13-36
+64            android:screenOrientation="sensorLandscape"
+64-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:26:13-56
+65            android:theme="@style/Theme.MobileRacingController" >
+65-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:28:13-64
+66            <intent-filter>
+66-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:29:13-32:29
+67                <action android:name="android.intent.action.MAIN" />
+67-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:30:17-69
+67-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:30:25-66
+68
+69                <category android:name="android.intent.category.LAUNCHER" />
+69-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:31:17-77
+69-->/home/contra/Steering Project/android_app/app/src/main/AndroidManifest.xml:31:27-74
+70            </intent-filter>
+71        </activity>
+72        <activity
+72-->[androidx.compose.ui:ui-tooling-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/f15f3c3529d6b5109bc2fb8877db0924/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+73            android:name="androidx.compose.ui.tooling.PreviewActivity"
+73-->[androidx.compose.ui:ui-tooling-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/f15f3c3529d6b5109bc2fb8877db0924/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+74            android:exported="true" />
+74-->[androidx.compose.ui:ui-tooling-android:1.9.0] /home/contra/.gradle/caches/8.13/transforms/f15f3c3529d6b5109bc2fb8877db0924/transformed/ui-tooling/AndroidManifest.xml:25:13-36
 75
-76        <receiver
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
-77            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
-78            android:directBootAware="false"
-78-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
-79            android:enabled="true"
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
-80            android:exported="true"
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
-81            android:permission="android.permission.DUMP" >
-81-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
-82            <intent-filter>
-82-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
-83                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
-84            </intent-filter>
-85            <intent-filter>
-85-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
-86                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
-87            </intent-filter>
-88            <intent-filter>
-88-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
-89                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-89-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
-89-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
-90            </intent-filter>
-91            <intent-filter>
-91-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
-92                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-92-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
-92-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/3ddeed0a12d8d57f6e8c0527429a5869/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
-93            </intent-filter>
-94        </receiver>
-95    </application>
-96
-97</manifest>
+76        <provider
+76-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+77            android:name="androidx.startup.InitializationProvider"
+77-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+78            android:authorities="com.racing.controller.androidx-startup"
+78-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+79            android:exported="false" >
+79-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+80            <meta-data
+80-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+81                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+81-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+82                android:value="androidx.startup" />
+82-->[androidx.emoji2:emoji2:1.4.0] /home/contra/.gradle/caches/8.13/transforms/bf3c44e06a51bfd3d4946faf9ad286a7/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+83            <meta-data
+83-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/f0228bad7f2c22c401ffa1a1c054c302/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:29:13-31:52
+84                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+84-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/f0228bad7f2c22c401ffa1a1c054c302/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:30:17-78
+85                android:value="androidx.startup" />
+85-->[androidx.lifecycle:lifecycle-process:2.9.3] /home/contra/.gradle/caches/8.13/transforms/f0228bad7f2c22c401ffa1a1c054c302/transformed/lifecycle-process-2.9.3/AndroidManifest.xml:31:17-49
+86            <meta-data
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+87                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+88                android:value="androidx.startup" />
+88-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+89        </provider>
+90
+91        <activity
+91-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d3f04839a58d14080e551157ae04ceba/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:23:9-26:79
+92            android:name="androidx.activity.ComponentActivity"
+92-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d3f04839a58d14080e551157ae04ceba/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:24:13-63
+93            android:exported="true"
+93-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d3f04839a58d14080e551157ae04ceba/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:25:13-36
+94            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+94-->[androidx.compose.ui:ui-test-manifest:1.9.0] /home/contra/.gradle/caches/8.13/transforms/d3f04839a58d14080e551157ae04ceba/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:26:13-76
+95
+96        <receiver
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+97            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+97-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+98            android:directBootAware="false"
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+99            android:enabled="true"
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+100            android:exported="true"
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+101            android:permission="android.permission.DUMP" >
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+102            <intent-filter>
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+103                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+104            </intent-filter>
+105            <intent-filter>
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+106                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+107            </intent-filter>
+108            <intent-filter>
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+109                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+110            </intent-filter>
+111            <intent-filter>
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+112                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+112-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+112-->[androidx.profileinstaller:profileinstaller:1.4.0] /home/contra/.gradle/caches/8.13/transforms/7084fe337807f18ee0d7d38d3b9fda93/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+113            </intent-filter>
+114        </receiver>
+115
+116        <activity
+116-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:47:9-53:63
+117            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+117-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:48:13-74
+118            android:clearTaskOnLaunch="true"
+118-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:49:13-45
+119            android:screenOrientation="sensorLandscape"
+119-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:50:13-56
+120            android:stateNotNeeded="true"
+120-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:51:13-42
+121            android:theme="@style/zxing_CaptureTheme"
+121-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:52:13-54
+122            android:windowSoftInputMode="stateAlwaysHidden" />
+122-->[com.journeyapps:zxing-android-embedded:4.3.0] /home/contra/.gradle/caches/8.13/transforms/9a5d1f156daa659fcc24ae67ce3fcfd7/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:53:13-60
+123    </application>
+124
+125</manifest>
