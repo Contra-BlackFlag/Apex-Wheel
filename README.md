@@ -41,7 +41,7 @@ Jump directly to any section:
 
 For players who want to jump into a race immediately:
 1. **Do as Below, make sure you have python and clone this repository**
-2. **PC**: Open terminal in `pc_companion/`, install dependencies, and run:
+2. **PC**: Open terminal in `pc_companion/` where you cloned the repository, and run the command below in cmd:
    ```bash
    pip install -r requirements.txt
    python run_pc_companion.py
