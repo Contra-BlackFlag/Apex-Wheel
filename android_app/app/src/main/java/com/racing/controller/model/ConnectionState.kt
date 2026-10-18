@@ -19,5 +19,14 @@ data class ControllerSettings(
     val updateRateHz: Int = 100, // 30, 60, 100, 120
     val hapticFeedbackEnabled: Boolean = true,
     val throttleRampEnabled: Boolean = false,
-    val selectedTeam: String = "red_bull"
+    val selectedTeam: String = "red_bull",
+    // HUD Customization
+    val buttonShape: String = "circle", // "circle", "square", "hexagon", "pill"
+    val buttonScale: Float = 1.0f, // 0.8f to 1.25f
+    val swapThrottleBrake: Boolean = false, // Swap pedals left/right
+    val showRevLights: Boolean = true,
+    val showSteeringDegree: Boolean = true,
+    val showClutch: Boolean = true,
+    val showHandbrake: Boolean = true,
+    val hudLayoutJson: String = ""
 )

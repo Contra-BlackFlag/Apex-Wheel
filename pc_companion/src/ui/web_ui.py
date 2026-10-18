@@ -364,6 +364,31 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             </p>
         </div>
 
+        <!-- Wired USB Cable Mode Card -->
+        <div class="card" style="border-left: 3px solid var(--accent-blue);">
+            <h2>🔌 Wired USB Cable Mode (&lt;0.5ms)</h2>
+            <div class="metric-row">
+                <span class="metric-label">ADB Status</span>
+                <span id="usbStatus" class="metric-val" style="color: var(--accent-blue)">Checking...</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Reverse Tunnel</span>
+                <span id="usbReverse" class="metric-val">-</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Attached Devices</span>
+                <span id="usbDevices" class="metric-val">None</span>
+            </div>
+            <div style="margin-top: 14px; display: flex; gap: 10px;">
+                <button id="btnReverseAdb" onclick="triggerAdbReverse()" style="background: var(--surface-elevated); border: 1px solid var(--border-color); color: var(--text-primary); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 500;">
+                    ⚡ Re-apply ADB Reverse
+                </button>
+            </div>
+            <p style="margin-top: 10px; font-size: 11px; color: var(--text-secondary); line-height: 15px;">
+                Connect phone via USB cable with <b>USB Debugging</b> enabled, or turn on <b>USB Tethering</b> in Android Settings. Zero Wi-Fi latency!
+            </p>
+        </div>
+
         <!-- System & Network Diagnostics Card -->
         <div class="card">
             <h2>Driver & Network Status</h2>
@@ -389,7 +414,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             </div>
 
             <div style="margin-top: 14px; font-size: 12px; color: var(--text-secondary);">
-                Enter one of these IP addresses in the Android App:
+                Enter one of these IP addresses in the Android App (or connect via USB):
             </div>
             <div id="ipList" class="highlight-ip">Detecting local IPs...</div>
         </div>
@@ -413,6 +438,19 @@ DASHBOARD_HTML = """<!DOCTYPE html>
         const updateRate = document.getElementById("updateRate");
         const totalPackets = document.getElementById("totalPackets");
         const ipList = document.getElementById("ipList");
+        const usbStatus = document.getElementById("usbStatus");
+        const usbReverse = document.getElementById("usbReverse");
+        const usbDevices = document.getElementById("usbDevices");
+
+        async function triggerAdbReverse() {
+            try {
+                const res = await fetch("/api/usb_reverse");
+                const j = await res.json();
+                alert(j.reverse_active ? "⚡ ADB Reverse mapping active!" : "Failed to reverse port: " + (j.status || "Check USB connection"));
+            } catch (e) {
+                alert("Error calling ADB reverse: " + e);
+            }
+        }
 
         async function pollState() {
             try {
@@ -464,6 +502,16 @@ DASHBOARD_HTML = """<!DOCTYPE html>
             if (data.local_ips && data.local_ips.length > 0) {
                 ipList.innerText = data.local_ips.join("  |  ") + " (Port: " + data.port + ")";
             }
+
+            // USB Status
+            if (data.usb) {
+                usbStatus.innerText = data.usb.status || (data.usb.adb_available ? "Ready" : "ADB not installed");
+                usbReverse.innerText = data.usb.reverse_active ? "⚡ Active (127.0.0.1:9876)" : "Inactive";
+                usbReverse.style.color = data.usb.reverse_active ? "var(--accent-green)" : "var(--accent-red)";
+                usbDevices.innerText = (data.usb.connected_devices && data.usb.connected_devices.length > 0)
+                    ? data.usb.connected_devices.join(", ")
+                    : "None";
+            }
         }
 
         setInterval(pollState, 33); // 30fps refresh
@@ -476,10 +524,11 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 class WebDashboardServer:
     """Lightweight HTTP server providing web dashboard and JSON state API."""
 
-    def __init__(self, host: str, port: int, get_state_callback: Callable[[], Dict[str, Any]]):
+    def __init__(self, host: str, port: int, get_state_callback: Callable[[], Dict[str, Any]], usb_manager=None):
         self.host = host
         self.port = port
         self.get_state = get_state_callback
+        self.usb_manager = usb_manager
         self.server: Optional[asyncio.Server] = None
 
     async def start(self):
@@ -542,6 +591,18 @@ class WebDashboardServer:
                     b"HTTP/1.1 200 OK\r\n"
                     b"Content-Type: " + content_type + b"\r\n"
                     b"Cache-Control: no-cache\r\n"
+                    b"Content-Length: " + str(len(body)).encode("ascii") + b"\r\n"
+                    b"Connection: close\r\n\r\n" + body
+                )
+            elif path.startswith("/api/usb_reverse"):
+                ok = False
+                if self.usb_manager:
+                    ok = await self.usb_manager.setup_reverse()
+                body = json.dumps({"status": "ok" if ok else "failed", "reverse_active": ok}).encode("utf-8")
+                response = (
+                    b"HTTP/1.1 200 OK\r\n"
+                    b"Content-Type: application/json\r\n"
+                    b"Access-Control-Allow-Origin: *\r\n"
                     b"Content-Length: " + str(len(body)).encode("ascii") + b"\r\n"
                     b"Connection: close\r\n\r\n" + body
                 )

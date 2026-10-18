@@ -29,6 +29,7 @@ from tests.test_safety import (
 )
 from tests.test_controller import test_mock_controller_tracking
 from tests.test_server import test_server_socket_client_workflow
+from tests.test_usb_manager import TestAdbUsbManager
 
 class TestCompanionSuite(unittest.TestCase):
 

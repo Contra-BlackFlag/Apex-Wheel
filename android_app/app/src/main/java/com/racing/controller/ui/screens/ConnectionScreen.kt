@@ -21,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Laptop
 import androidx.compose.material.icons.filled.Sensors
+import androidx.compose.material.icons.filled.Usb
 import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -172,6 +173,36 @@ fun ConnectionScreen(
                             )
                         }
 
+                        Spacer(modifier = Modifier.height(10.dp))
+
+                        // Wired USB Cable Mode (<1ms) Button
+                        Button(
+                            onClick = {
+                                val port = portStr.toIntOrNull() ?: 9876
+                                viewModel.connectUsb(port)
+                                onBack()
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFF1E3A8A)
+                            ),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.fillMaxWidth().height(46.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Usb,
+                                contentDescription = "Wired USB",
+                                tint = Color(0xFF60A5FA),
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = "Connect via USB Cable (<1ms)",
+                                color = Color.White,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 14.sp
+                            )
+                        }
+
                         Spacer(modifier = Modifier.height(16.dp))
 
                         // Divider with text "OR MANUAL IP"
@@ -308,17 +339,20 @@ fun ConnectionScreen(
                         Spacer(modifier = Modifier.height(16.dp))
 
                         Text(
-                            text = "Quick Instructions:",
+                            text = "Connection Options:",
                             color = TextPrimary,
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Medium
                         )
                         Spacer(modifier = Modifier.height(6.dp))
                         Text(
-                            text = "1. Run the PC Companion on your PC (python run_pc_companion.py)\n" +
-                                   "2. Make sure phone and PC are connected to the same Wi-Fi.\n" +
-                                   "3. Enter the IP displayed in the PC Companion terminal/dashboard.\n" +
-                                   "4. Press Connect and return to the controller screen.",
+                            text = "🔌 Wired USB Mode (<1ms Latency):\n" +
+                                   "1. Connect phone to PC via USB cable.\n" +
+                                   "2. Enable USB Debugging (recommended: PC companion auto-tunnels 127.0.0.1) OR enable USB Tethering in phone Settings.\n" +
+                                   "3. Tap 'Connect via USB Cable' for instant zero-lag gameplay.\n\n" +
+                                   "📶 Wireless Wi-Fi Mode:\n" +
+                                   "1. Connect phone and PC to the same Wi-Fi.\n" +
+                                   "2. Scan PC QR Code or enter the IP from the PC companion.",
                             color = TextSecondary,
                             fontSize = 11.sp,
                             lineHeight = 16.sp

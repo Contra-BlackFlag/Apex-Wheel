@@ -47,12 +47,20 @@ class TerminalUI:
         if inputs.get("start"): btns.append("STR")
         btn_str = " ".join(btns) if btns else "-"
 
+        usb = metrics.get("usb", {})
+        usb_str = ""
+        if usb.get("reverse_active"):
+            usb_str = " | \033[96mUSB: ⚡TUNNEL\033[0m"
+        elif usb.get("has_device"):
+            usb_str = " | \033[96mUSB: ATTACHED\033[0m"
+
         line = (
             f"[{status_str}] "
             f"Rate: {rate:4.1f}Hz | "
             f"Steer {steer_bar} {steer:+.2f} | "
             f"Thr {throt_bar} {throttle:.2f} | "
             f"Brk {brake_bar} {brake:.2f} | "
-            f"Btns: {btn_str:<12}"
+            f"Btns: {btn_str:<10}"
+            f"{usb_str}"
         )
         return line

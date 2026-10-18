@@ -43,16 +43,23 @@ fun TactileClutchButton(
     modifier: Modifier = Modifier,
     width: Dp = 120.dp,
     height: Dp = 80.dp,
+    buttonShape: com.racing.controller.model.ButtonShape = com.racing.controller.model.ButtonShape.CIRCLE,
     onValueChange: (Float) -> Unit
 ) {
     var isPressed by remember { mutableStateOf(false) }
 
-    val clutchShape = RoundedCornerShape(
-        topStart = 8.dp,
-        topEnd = 8.dp,
-        bottomStart = 36.dp,
-        bottomEnd = 36.dp
-    )
+    val clutchShape = remember(buttonShape) {
+        if (buttonShape == com.racing.controller.model.ButtonShape.CIRCLE) {
+            RoundedCornerShape(
+                topStart = 8.dp,
+                topEnd = 8.dp,
+                bottomStart = 36.dp,
+                bottomEnd = 36.dp
+            )
+        } else {
+            buttonShape.toComposeShape(20)
+        }
+    }
 
     val activeGlow = Color(0xFF00D2BE)
     val activeBgStart = Color(0xFF0A3E38)

@@ -8,6 +8,7 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     "server": {
         "host": "0.0.0.0",
         "port": 9876,
+        "vibration_port": 9877,
         "web_port": 8080,
         "watchdog_timeout_ms": 500,
         "max_clients": 1
@@ -60,6 +61,10 @@ class CompanionConfig:
         return self.data["server"]["port"]
 
     @property
+    def vibration_port(self) -> int:
+        return self.data["server"].get("vibration_port", self.port + 1)
+
+    @property
     def web_port(self) -> int:
         return self.data["server"]["web_port"]
 
@@ -92,6 +97,21 @@ class CompanionConfig:
             for ip in socket.gethostbyname_ex(hostname)[2]:
                 if not ip.startswith("127.") and ip not in ips:
                     ips.append(ip)
+        except Exception:
+            pass
+
+        # Inspect network interfaces for USB tethering and all adapters
+        try:
+            import psutil
+            for iface, addrs in psutil.net_if_addrs().items():
+                for addr in addrs:
+                    if getattr(addr, "family", None) == socket.AF_INET and not addr.address.startswith("127."):
+                        if addr.address not in ips:
+                            # Prioritize USB / RNDIS tethering addresses if active
+                            if any(k in iface.lower() for k in ["usb", "rndis", "tether", "ncm"]):
+                                ips.insert(0, addr.address)
+                            else:
+                                ips.append(addr.address)
         except Exception:
             pass
 

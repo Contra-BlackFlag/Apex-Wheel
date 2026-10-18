@@ -47,9 +47,11 @@ import com.racing.controller.ui.theme.SurfaceControl
 fun TactileEBrakeButton(
     modifier: Modifier = Modifier,
     size: Dp = 64.dp,
+    buttonShape: com.racing.controller.model.ButtonShape = com.racing.controller.model.ButtonShape.CIRCLE,
     onPressChange: (Boolean) -> Unit
 ) {
     var isPressed by remember { mutableStateOf(false) }
+    val composeShape = remember(buttonShape) { buttonShape.toComposeShape(16) }
 
     val activeGlow = Color(0xFFFF1744)
     val activeBgStart = Color(0xFF6B0818)
@@ -85,11 +87,11 @@ fun TactileEBrakeButton(
             }
             .shadow(
                 elevation = if (isPressed) 14.dp else 5.dp,
-                shape = CircleShape,
+                shape = composeShape,
                 ambientColor = if (isPressed) activeGlow else Color.Black,
                 spotColor = if (isPressed) activeGlow else Color.Black
             )
-            .clip(CircleShape)
+            .clip(composeShape)
             .background(
                 if (isPressed) {
                     Brush.radialGradient(
@@ -106,7 +108,7 @@ fun TactileEBrakeButton(
             .border(
                 width = borderWidth.dp,
                 color = borderColor,
-                shape = CircleShape
+                shape = composeShape
             )
             .pointerInput(Unit) {
                 awaitEachGesture {

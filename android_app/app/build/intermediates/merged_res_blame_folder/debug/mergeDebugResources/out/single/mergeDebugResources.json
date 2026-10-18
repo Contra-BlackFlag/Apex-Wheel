@@ -1,59 +1,59 @@
 [
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-hdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-xxhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/drawable_ic_launcher_background.xml.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/drawable/ic_launcher_background.xml"
-    },
-    {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-xhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-xxxhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
         "merged": "com.racing.controller.app-debug-47:/drawable_ic_scanner_frame.xml.flat",
         "source": "com.racing.controller.app-main-49:/drawable/ic_scanner_frame.xml"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.racing.controller.app-main-49:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.racing.controller.app-main-49:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
         "merged": "com.racing.controller.app-debug-47:/layout_activity_custom_scanner.xml.flat",
         "source": "com.racing.controller.app-main-49:/layout/activity_custom_scanner.xml"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-xxxhdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "com.racing.controller.app-debug-47:/drawable_bg_scanner_pill.xml.flat",
@@ -64,15 +64,15 @@
         "source": "com.racing.controller.app-main-49:/drawable/ic_scan_torch.xml"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
         "merged": "com.racing.controller.app-debug-47:/drawable_ic_scan_close.xml.flat",
         "source": "com.racing.controller.app-main-49:/drawable/ic_scan_close.xml"
     },
     {
-        "merged": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-debug-47:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "/home/contra/.gradle/daemon/8.13/com.racing.controller.app-main-49:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.racing.controller.app-debug-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.racing.controller.app-debug-47:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.racing.controller.app-main-49:/mipmap-xhdpi/ic_launcher.webp"
     }
 ]

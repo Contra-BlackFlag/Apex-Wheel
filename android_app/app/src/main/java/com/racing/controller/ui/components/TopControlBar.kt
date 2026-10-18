@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Usb
 import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material.icons.filled.WifiOff
 import androidx.compose.material3.Icon
@@ -48,20 +49,28 @@ fun TopControlBar(
     onSettingsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(
+    Box(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+            .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         // Left side: Connection status pill and Active F1 Team Badge
         Row(
+            modifier = Modifier.align(Alignment.CenterStart),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+            val isUsb = if (connectionState is ConnectionState.Connected) {
+                val h = connectionState.host.lowercase()
+                h == "127.0.0.1" || h == "localhost" || h.startsWith("192.168.42.")
+            } else false
+
             val (statusColor, statusText) = when (connectionState) {
-                is ConnectionState.Connected -> Pair(AccentGreen, "Connected ${connectionState.pingMs}ms")
+                is ConnectionState.Connected -> {
+                    val pingStr = if (isUsb && connectionState.pingMs <= 1) "<1ms" else "${connectionState.pingMs}ms"
+                    val label = if (isUsb) "USB $pingStr" else "Wi-Fi $pingStr"
+                    Pair(AccentGreen, label)
+                }
                 is ConnectionState.Connecting -> Pair(AccentAmber, "Connecting...")
                 is ConnectionState.Disconnected -> Pair(AccentRed, "Disconnected")
                 is ConnectionState.Error -> Pair(AccentRed, "Error")
@@ -89,7 +98,11 @@ fun TopControlBar(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Icon(
-                    imageVector = if (connectionState is ConnectionState.Connected) Icons.Default.Wifi else Icons.Default.WifiOff,
+                    imageVector = when {
+                        connectionState !is ConnectionState.Connected -> Icons.Default.WifiOff
+                        isUsb -> Icons.Default.Usb
+                        else -> Icons.Default.Wifi
+                    },
                     contentDescription = "Connection",
                     tint = statusColor,
                     modifier = Modifier.size(13.dp)
@@ -117,45 +130,44 @@ fun TopControlBar(
             }
         }
 
-        // Action buttons: Calibrate, Settings
+        // Horizontally Center: Calibrate Button
         Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            modifier = Modifier
+                .align(Alignment.Center)
+                .clip(RoundedCornerShape(14.dp))
+                .background(Color(0x22FFFFFF))
+                .clickable { onCalibrateClick() }
+                .padding(horizontal = 12.dp, vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            // Calibrate Button
-            Row(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(14.dp))
-                    .background(Color(0x22FFFFFF))
-                    .clickable { onCalibrateClick() }
-                    .padding(horizontal = 8.dp, vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Refresh,
-                    contentDescription = "Calibrate",
-                    tint = TextPrimary,
-                    modifier = Modifier.size(14.dp)
-                )
-                Spacer(modifier = Modifier.width(4.dp))
-                Text(
-                    text = "Calibrate",
-                    color = TextPrimary,
-                    fontSize = 11.sp
-                )
-            }
+            Icon(
+                imageVector = Icons.Default.Refresh,
+                contentDescription = "Calibrate",
+                tint = TextPrimary,
+                modifier = Modifier.size(14.dp)
+            )
+            Spacer(modifier = Modifier.width(5.dp))
+            Text(
+                text = "Calibrate",
+                color = TextPrimary,
+                fontSize = 11.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
 
-            IconButton(
-                onClick = onSettingsClick,
-                modifier = Modifier.size(32.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = "Settings",
-                    tint = TextSecondary,
-                    modifier = Modifier.size(18.dp)
-                )
-            }
+        // Right side: Settings Button
+        IconButton(
+            onClick = onSettingsClick,
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+                .size(32.dp)
+        ) {
+            Icon(
+                imageVector = Icons.Default.Settings,
+                contentDescription = "Settings",
+                tint = TextSecondary,
+                modifier = Modifier.size(18.dp)
+            )
         }
     }
 }

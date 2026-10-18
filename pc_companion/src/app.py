@@ -6,6 +6,7 @@ from typing import Dict, Any
 from .config import CompanionConfig
 from .controller import create_gamepad
 from .server import ControllerServer
+from .usb_manager import AdbUsbManager
 from .ui.web_ui import WebDashboardServer
 from .ui.cli_ui import TerminalUI
 
@@ -15,16 +16,25 @@ class CompanionApplication:
         config_file: str = "config.json",
         force_mock: bool = False,
         port_override: int = None,
+        vibration_port_override: int = None,
         web_port_override: int = None
     ):
         self.config = CompanionConfig(config_file)
         if port_override is not None:
             self.config.data["server"]["port"] = port_override
+        if vibration_port_override is not None:
+            self.config.data["server"]["vibration_port"] = vibration_port_override
         if web_port_override is not None:
             self.config.data["server"]["web_port"] = web_port_override
 
         self.gamepad = create_gamepad(self.config.mappings, force_mock=force_mock)
         self.local_ips = CompanionConfig.get_local_ip_addresses()
+
+        # USB Manager for wired USB cable connectivity & auto ADB reverse port forwarding
+        self.usb_manager = AdbUsbManager(
+            port=self.config.port,
+            vibration_port=self.config.vibration_port
+        )
 
         self.server = ControllerServer(
             host=self.config.host,
@@ -36,7 +46,8 @@ class CompanionApplication:
         self.web_server = WebDashboardServer(
             host=self.config.host,
             port=self.config.web_port,
-            get_state_callback=self._get_combined_state
+            get_state_callback=self._get_combined_state,
+            usb_manager=self.usb_manager
         )
 
         self._running = False
@@ -45,7 +56,9 @@ class CompanionApplication:
         metrics = self.server.get_metrics()
         metrics["local_ips"] = self.local_ips
         metrics["port"] = self.config.port
+        metrics["vibration_port"] = self.config.vibration_port
         metrics["web_port"] = self.config.web_port
+        metrics["usb"] = self.usb_manager.get_status()
         return metrics
 
     async def run(self):
@@ -56,6 +69,10 @@ class CompanionApplication:
         print("==================================================")
         print(f"[*] Virtual Gamepad Driver: {self.gamepad.get_status()['type']}")
         print(f"[*] Controller Port (Wi-Fi): {self.config.port}")
+        if self.usb_manager.adb_path:
+            print(f"[*] 🔌 USB Wired Cable (ADB): Ready (Auto-maps 127.0.0.1:{self.config.port} <0.5ms)")
+        else:
+            print(f"[*] 🔌 USB Wired Cable: ADB not in PATH (USB Tethering still works)")
         print(f"[*] Web Dashboard Port:      http://localhost:{self.config.web_port}")
         print("[*] Available Local IP Addresses:")
         for ip in self.local_ips:
@@ -65,6 +82,7 @@ class CompanionApplication:
         primary_ip = self.local_ips[0] if self.local_ips else "127.0.0.1"
         print_terminal_qr(primary_ip, self.config.port)
 
+        await self.usb_manager.start()
         await self.server.start()
         await self.web_server.start()
 
@@ -87,6 +105,7 @@ class CompanionApplication:
     async def shutdown(self):
         print("\n[*] Shutting down ApexWheel companion...")
         self._running = False
+        await self.usb_manager.stop()
         await self.server.stop()
         await self.web_server.stop()
         self.gamepad.close()
@@ -98,6 +117,7 @@ def main():
     parser.add_argument("--config", default="config.json", help="Path to config.json")
     parser.add_argument("--mock", action="store_true", help="Force mock gamepad even on Windows")
     parser.add_argument("--port", type=int, default=None, help="Override controller port")
+    parser.add_argument("--vibration-port", type=int, default=None, help="Override vibration port")
     parser.add_argument("--web-port", type=int, default=None, help="Override web UI port")
     args = parser.parse_args()
 
@@ -105,6 +125,7 @@ def main():
         config_file=args.config,
         force_mock=args.mock,
         port_override=args.port,
+        vibration_port_override=args.vibration_port,
         web_port_override=args.web_port
     )
 

@@ -12,6 +12,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -48,6 +50,7 @@ class NetworkClient(private val scope: CoroutineScope) {
     private var heartbeatJob: Job? = null
 
     private val sequenceCounter = AtomicLong(0)
+    private val sendMutex = Mutex()
     private var currentHost: String = ""
     private var currentPort: Int = 0
 
@@ -106,8 +109,10 @@ class NetworkClient(private val scope: CoroutineScope) {
 
         try {
             val jsonBytes = (json.encodeToString(packet) + "\n").toByteArray(Charsets.UTF_8)
-            out.write(jsonBytes)
-            out.flush()
+            sendMutex.withLock {
+                out.write(jsonBytes)
+                out.flush()
+            }
             _packetsSentCount.value++
         } catch (e: Exception) {
             _connectionState.value = ConnectionState.Error("Send failed: ${e.localizedMessage}")
@@ -129,8 +134,10 @@ class NetworkClient(private val scope: CoroutineScope) {
                 try {
                     val ping = HeartbeatPacket(timestamp = System.currentTimeMillis())
                     val pingBytes = (json.encodeToString(ping) + "\n").toByteArray(Charsets.UTF_8)
-                    out.write(pingBytes)
-                    out.flush()
+                    sendMutex.withLock {
+                        out.write(pingBytes)
+                        out.flush()
+                    }
                 } catch (e: Exception) {
                     break
                 }

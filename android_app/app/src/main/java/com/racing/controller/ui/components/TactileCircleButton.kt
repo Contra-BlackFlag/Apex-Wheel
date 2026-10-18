@@ -43,9 +43,11 @@ fun TactileCircleButton(
     text: String,
     modifier: Modifier = Modifier,
     size: Dp = 100.dp,
+    buttonShape: com.racing.controller.model.ButtonShape = com.racing.controller.model.ButtonShape.CIRCLE,
     onValueChange: (Float) -> Unit
 ) {
     var isPressed by remember { mutableStateOf(false) }
+    val composeShape = remember(buttonShape) { buttonShape.toComposeShape(24) }
 
     val isBrake = text.equals("Brake", ignoreCase = true)
     val activeGlowColor = if (isBrake) Color(0xFFE8002D) else Color(0xFF00E676)
@@ -83,11 +85,11 @@ fun TactileCircleButton(
             }
             .shadow(
                 elevation = if (isPressed) 16.dp else 6.dp,
-                shape = CircleShape,
+                shape = composeShape,
                 ambientColor = if (isPressed) activeGlowColor else Color.Black,
                 spotColor = if (isPressed) activeGlowColor else Color.Black
             )
-            .clip(CircleShape)
+            .clip(composeShape)
             .background(
                 if (isPressed) {
                     Brush.radialGradient(
@@ -104,7 +106,7 @@ fun TactileCircleButton(
             .border(
                 width = borderWidth.dp,
                 color = borderColor,
-                shape = CircleShape
+                shape = composeShape
             )
             .pointerInput(Unit) {
                 awaitEachGesture {

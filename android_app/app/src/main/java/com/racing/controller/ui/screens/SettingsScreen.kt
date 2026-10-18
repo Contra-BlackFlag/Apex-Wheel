@@ -11,12 +11,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Tune
+import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -275,6 +278,132 @@ fun SettingsScreen(
                                     viewModel.saveSettings(settings.copy(selectedTeam = newTeam.id))
                                 },
                                 onDismiss = { showThemeDialog = false }
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(14.dp))
+
+                        var showHudDialog by remember { mutableStateOf(false) }
+
+                        // Cockpit HUD Customization Card
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(12.dp))
+                                .clickable { showHudDialog = true },
+                            colors = CardDefaults.cardColors(containerColor = SurfaceControl),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF00E5FF).copy(alpha = 0.5f))
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 14.dp, vertical = 12.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Icon(
+                                        imageVector = Icons.Default.Tune,
+                                        contentDescription = "HUD Customization",
+                                        tint = Color(0xFF00E5FF),
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(12.dp))
+                                    Column {
+                                        Text(
+                                            text = "Cockpit HUD Customization",
+                                            color = TextPrimary,
+                                            fontSize = 13.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                        Text(
+                                            text = "Shapes, Scaling & Cockpit Toggles",
+                                            color = TextSecondary,
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                    }
+                                }
+
+                                Text(
+                                    text = "Configure",
+                                    color = Color(0xFF00E5FF),
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                        }
+
+                        if (showHudDialog) {
+                            HudCustomDialog(
+                                currentSettings = settings,
+                                onSaveSettings = { updated ->
+                                    viewModel.saveSettings(updated)
+                                },
+                                onDismiss = { showHudDialog = false }
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(10.dp))
+
+                        var showLayoutEditor by remember { mutableStateOf(false) }
+
+                        // Minimalist HUD Layout Editor Card
+                        Card(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(10.dp))
+                                .clickable { showLayoutEditor = true },
+                            colors = CardDefaults.cardColors(containerColor = Color(0x1800E5FF)),
+                            border = androidx.compose.foundation.BorderStroke(1.dp, Color(0x4400E5FF))
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 14.dp, vertical = 10.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Icon(
+                                        imageVector = Icons.Default.Tune,
+                                        contentDescription = "HUD Layout Editor",
+                                        tint = Color(0xFF00E5FF),
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Column {
+                                        Text(
+                                            text = "HUD Layout Canvas Editor",
+                                            color = TextPrimary,
+                                            fontSize = 13.sp,
+                                            fontWeight = FontWeight.SemiBold
+                                        )
+                                        Text(
+                                            text = "Drag controls, scale, and adjust opacity",
+                                            color = TextSecondary,
+                                            fontSize = 11.sp
+                                        )
+                                    }
+                                }
+
+                                Text(
+                                    text = "Edit Layout →",
+                                    color = Color(0xFF00E5FF),
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
+
+                        if (showLayoutEditor) {
+                            HudLayoutEditorDialog(
+                                currentSettings = settings,
+                                onSaveLayout = { updated ->
+                                    viewModel.saveSettings(updated)
+                                    showLayoutEditor = false
+                                },
+                                onDismiss = { showLayoutEditor = false }
                             )
                         }
 

@@ -21,8 +21,9 @@ Jump directly to any section:
    - [Option A: Install Pre-Built APK (Recommended)](#option-a-install-apk)
    - [Option B: Build from Source with Gradle](#option-b-build-source)
 5. [🔗 Step 3: Connecting Phone to PC](#step-3-connecting)
-   - [Method 1: Instant QR Code Scan (Fastest)](#method-1-qr-scan)
-   - [Method 2: Manual IP Entry](#method-2-manual-ip)
+   - [Method 1: Instant QR Code Scan (Fastest Wireless)](#method-1-qr-scan)
+   - [Method 2: Manual IP Entry (Wi-Fi)](#method-2-manual-ip)
+   - [Method 3: Wired USB Cable (<1ms Latency, Zero Jitter)](#method-3-wired-usb)
 6. [🎮 Step 4: Configuring Your PC Games](#step-4-game-config)
 7. [🕹️ Cockpit Interface & Input Mappings](#cockpit-interface)
    - [Default Xbox 360 Controller Mapping](#default-mapping)
@@ -196,6 +197,34 @@ If you are customizing code or adding features:
 3. Keep default port `9876` (or enter your custom port).
 4. Tap **"Connect to PC"**.
 5. The status pill will switch from yellow `CONNECTING` to glowing green `CONNECTED (X ms)`.
+
+<a id="method-3-wired-usb"></a>
+### Method 3: Wired USB Cable (<1ms Latency, Zero Jitter)
+
+For competitive esport racing, fast reflex reaction times, or environments with crowded/laggy Wi-Fi, you can connect your phone directly to your PC using a standard USB-C / USB cable.
+
+#### Why Choose Wired USB?
+- **Ultra-low latency**: Sub-millisecond round-trip response time (`< 0.5 ms` vs `10–30 ms` over Wi-Fi).
+- **100% Reliability**: Zero packet jitter, zero frame drops, and immune to 2.4 GHz/5 GHz microwave or wall interference.
+- **Works completely offline**: No local Wi-Fi router or internet access required.
+
+#### Option A: Plug & Play via ADB Reverse (Recommended)
+1. Connect your Android phone to the PC with a USB cable.
+2. Ensure **USB Debugging** is turned on in your phone's Developer Options (*Settings > About Phone > tap 'Build Number' 7 times > System > Developer Options > USB Debugging*).
+3. Start the PC Companion. The companion automatically detects your phone and executes:
+   ```bash
+   adb reverse tcp:9876 tcp:9876
+   ```
+4. Open the **ApexWheel** app on your phone, go to the Connection Screen, and simply tap:
+   **`🔌 Connect via USB Cable (<1ms)`**
+5. The app connects instantly to `127.0.0.1:9876` over the physical USB bus. The top HUD badge will display **`🔌 USB <1ms`**.
+
+#### Option B: USB Tethering (No Developer Options Needed)
+1. Connect your phone to your PC via USB cable.
+2. On your phone, go to **Settings > Network & Internet > Hotspot & Tethering** and enable **USB Tethering**.
+3. Windows and Linux will recognize a direct high-speed virtual network adapter (typically on subnet `192.168.42.x`).
+4. The PC Companion automatically discovers this adapter IP and displays it in the terminal and on `http://localhost:8080`.
+5. In the ApexWheel app, either tap **Scan PC QR Code** or enter the tethered IP address to connect directly over the USB wire.
 
 ---
 

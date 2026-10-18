@@ -30,6 +30,14 @@ class SettingsRepository(private val context: Context) {
         val HAPTIC_FEEDBACK = booleanPreferencesKey("haptic_feedback")
         val THROTTLE_RAMP = booleanPreferencesKey("throttle_ramp")
         val SELECTED_TEAM = stringPreferencesKey("selected_team")
+        val BUTTON_SHAPE = stringPreferencesKey("button_shape")
+        val BUTTON_SCALE = floatPreferencesKey("button_scale")
+        val SWAP_THROTTLE_BRAKE = booleanPreferencesKey("swap_throttle_brake")
+        val SHOW_REV_LIGHTS = booleanPreferencesKey("show_rev_lights")
+        val SHOW_STEERING_DEGREE = booleanPreferencesKey("show_steering_degree")
+        val SHOW_CLUTCH = booleanPreferencesKey("show_clutch")
+        val SHOW_HANDBRAKE = booleanPreferencesKey("show_handbrake")
+        val HUD_LAYOUT_JSON = stringPreferencesKey("hud_layout_json")
     }
 
     val settingsFlow: Flow<ControllerSettings> = context.dataStore.data.map { preferences ->
@@ -45,7 +53,15 @@ class SettingsRepository(private val context: Context) {
             updateRateHz = preferences[PreferencesKeys.UPDATE_RATE_HZ] ?: 60,
             hapticFeedbackEnabled = preferences[PreferencesKeys.HAPTIC_FEEDBACK] ?: true,
             throttleRampEnabled = preferences[PreferencesKeys.THROTTLE_RAMP] ?: false,
-            selectedTeam = preferences[PreferencesKeys.SELECTED_TEAM] ?: "red_bull"
+            selectedTeam = preferences[PreferencesKeys.SELECTED_TEAM] ?: "red_bull",
+            buttonShape = preferences[PreferencesKeys.BUTTON_SHAPE] ?: "circle",
+            buttonScale = preferences[PreferencesKeys.BUTTON_SCALE] ?: 1.0f,
+            swapThrottleBrake = preferences[PreferencesKeys.SWAP_THROTTLE_BRAKE] ?: false,
+            showRevLights = preferences[PreferencesKeys.SHOW_REV_LIGHTS] ?: true,
+            showSteeringDegree = preferences[PreferencesKeys.SHOW_STEERING_DEGREE] ?: true,
+            showClutch = preferences[PreferencesKeys.SHOW_CLUTCH] ?: true,
+            showHandbrake = preferences[PreferencesKeys.SHOW_HANDBRAKE] ?: true,
+            hudLayoutJson = preferences[PreferencesKeys.HUD_LAYOUT_JSON] ?: ""
         )
     }
 
@@ -63,6 +79,14 @@ class SettingsRepository(private val context: Context) {
             preferences[PreferencesKeys.HAPTIC_FEEDBACK] = settings.hapticFeedbackEnabled
             preferences[PreferencesKeys.THROTTLE_RAMP] = settings.throttleRampEnabled
             preferences[PreferencesKeys.SELECTED_TEAM] = settings.selectedTeam
+            preferences[PreferencesKeys.BUTTON_SHAPE] = settings.buttonShape
+            preferences[PreferencesKeys.BUTTON_SCALE] = settings.buttonScale
+            preferences[PreferencesKeys.SWAP_THROTTLE_BRAKE] = settings.swapThrottleBrake
+            preferences[PreferencesKeys.SHOW_REV_LIGHTS] = settings.showRevLights
+            preferences[PreferencesKeys.SHOW_STEERING_DEGREE] = settings.showSteeringDegree
+            preferences[PreferencesKeys.SHOW_CLUTCH] = settings.showClutch
+            preferences[PreferencesKeys.SHOW_HANDBRAKE] = settings.showHandbrake
+            preferences[PreferencesKeys.HUD_LAYOUT_JSON] = settings.hudLayoutJson
         }
     }
 

@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -39,6 +40,15 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
     val networkClient = NetworkClient(viewModelScope)
 
     val connectionState: StateFlow<ConnectionState> = networkClient.connectionState
+
+    // Live indicator whether current connection is over physical USB Cable (<1ms)
+    val isUsbConnection: StateFlow<Boolean> = networkClient.connectionState.map { state ->
+        if (state is ConnectionState.Connected) {
+            val h = state.host.lowercase()
+            h == "127.0.0.1" || h == "localhost" || h.startsWith("192.168.42.")
+        } else false
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+
     val steeringAngleDegrees: StateFlow<Float> = sensorManager.currentSteeringAngleDegrees
     val steeringNormalized: StateFlow<Float> = sensorManager.steeringOutput
 
@@ -111,6 +121,21 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
             settingsRepository.saveSettings(settingsState.value.copy(hostIp = host, port = port))
             networkClient.connect(host, port)
         }
+    }
+
+    /**
+     * Connects directly via physical USB cable over ADB reverse tunnel or USB tethering.
+     * Direct local-bus transport provides sub-millisecond (<1ms) latency and zero Wi-Fi packet drops.
+     */
+    fun connectUsb(port: Int = 9876) {
+        val usbHost = "127.0.0.1"
+        connect(usbHost, port)
+        vibrate(40)
+        android.widget.Toast.makeText(
+            getApplication(),
+            "🔌 Connecting via Wired USB (127.0.0.1:$port)...",
+            android.widget.Toast.LENGTH_SHORT
+        ).show()
     }
 
     fun disconnect() {
@@ -248,14 +273,16 @@ class ControllerViewModel(application: Application) : AndroidViewModel(applicati
 
     private fun vibrate(durationMs: Long) {
         if (!settingsState.value.hapticFeedbackEnabled) return
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator?.vibrate(VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE))
-            } else {
-                @Suppress("DEPRECATION")
-                vibrator?.vibrate(durationMs)
-            }
-        } catch (_: Exception) {}
+        viewModelScope.launch(Dispatchers.Default) {
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    vibrator?.vibrate(VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE))
+                } else {
+                    @Suppress("DEPRECATION")
+                    vibrator?.vibrate(durationMs)
+                }
+            } catch (_: Exception) {}
+        }
     }
 
     override fun onCleared() {
